@@ -1,18 +1,11 @@
-
-    <?php # DISPLAY COMPLETE LOGIN PAGE.
-
-    # Set page title and display header section.
-    $page_title = 'Login' ;
-    include ( 'header.php' ) ;
-
-    # Display any error messages if present.
-    if ( isset( $errors ) && !empty( $errors ) )
-    {
-     echo '<p id="err_msg">There was a problem:<br>' ;
-     foreach ( $errors as $msg ) { echo " - $msg<br>" ; }
-     echo 'Please try again or register</p>' ;
-    }
-    ?>
+<!-- This includes header-->
+<script src="jquery.js"></script>
+    <script>
+    $(function(){
+      $("#includeHeader").load("header.html");
+    });
+    </script>
+<div id="includeHeader"></div>
 
 
     <div class="jumbotron jumbotron-fluid">
