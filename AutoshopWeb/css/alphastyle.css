@@ -1,0 +1,190 @@
+/*
+
+Copyright Team Autograph, RGU, 2018
+
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Helvetica');
+@import url('https://fonts.googleapis.com/css?family=Open Sans');
+
+
+body
+{
+	background-color:#F6F7F2;
+	font-family: 'Helvetica';
+    font-size: 14px;
+    line-height: 1.42857143;
+    color:#282830;
+}
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+
+.glyphicon
+{
+	color:#282830;
+}
+
+.navbar-default .navbar-nav li a
+{
+	color: #1F1F1F;
+	font-family: 'Helvetica', sans-serif;
+}
+
+.navbar-default .navbar-brand
+{
+	color: #1F1F1F;
+	font-family: 'Helvetica', 'Open Sans';
+	font-size: 32px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus #
+{
+	color: #1F1F1F;
+	background-color: #ECBC2E;
+}
+
+
+/*
+=======================================
+Carousel
+=======================================
+*/
+.carousel-item {
+  height: 85vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*=====================
+Panels
+=======================
+*/
+
+.panel-default .panel-heading #
+{
+	background-color: #ECBC2E;
+	color: #FFF;
+}
+
+h1 a
+{
+	color: #ECBC2E;
+}
+
+h1
+{
+	color:#ECBC2E;
+}
+
+p
+{
+	color:#ECBC2E;
+}
+
+a
+{
+  color: #ECBC2E;
+}
+
+a:hover
+{
+  color: #FFDC00;
+  text-decoration: underline;
+}
+
+a:focus
+{
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/*=====================
+Team Details
+=======================
+*/
+.page-header
+{
+	color: #ECBC2E;
+	font-family: 'Helvetica', sans-serif;
+}
+
+.panel-primary
+{
+	border: solid thin #ECBC2E;
+}
+
+panel-body
+{
+	color: #ECBC2E
+}
+
+.panel-primary .panel-heading
+{
+	background-color:#ECBC2E;
+	font-size: 18px;
+}
+
+.alert-success
+{
+	background-color: #C59411;
+}
+
+.alert-success .alert-link
+{
+	color:#FFF;
+}
+
+/*=====================
+Find Us
+=======================
+*/
+
+.glyphicon-phone-alt
+{
+	color: #ECBC2E;
+}
+
+/*
+=====================
+Hover Effect
+=======================
+*/
+img:hover
+{
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+/*=====================
+League Table
+=======================
+*/
+
+tr
+{
+	font-size: 18px;
+	padding-left:  10px;
+	padding-bottom: 20px;
+}
+th
+{
+	text-align: center;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+td
+{
+   text-align: center;
+}
