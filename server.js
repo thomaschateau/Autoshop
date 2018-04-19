@@ -7,7 +7,7 @@ var app = express();
 app.set('view engine', 'ejs');
 // use res.render to load up an ejs view file
 // index page
-app.get('AutoshopWeb/', function(req, res) {
+app.get('home/codio/workspace/AutoshopWeb/', function(req, res) {
  res.render('pages/index');
 });
 // about page
