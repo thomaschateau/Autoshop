@@ -18,7 +18,7 @@
 
           MongoClient.connect(url, function(err, db) {
             if (err) throw err;
-            var dbo = db.db("autogra");
+            var dbo = db.db("autographdb");
             dbo.collection("customers").findOne({}, function(err, result) {
               if (err) throw err;
               console.log(result.name);
@@ -47,86 +47,6 @@
                 </div>
 
 
-
-                <div class="col-lg-4 col-md-6 mb-4 mt-4">
-                   <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="pictures/tr2.jpg" alt=""></a>
-                      <div class="card-body">
-                         <h4 class="card-title">
-                            <a href="#">Incredible trousers</a>
-                         </h4>
-                         <h5>$24.99</h5>
-                         <p class="card-text">You want to impress you friends ? Be smart and buy this trousers !</p>
-                      </div>
-                      <div class="card-footer">
-                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                   </div>
-                </div>
-
-
-
-                <div class="col-lg-4 col-md-6 mb-4 mt-4">
-                   <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="pictures/tr3.jpg" alt=""></a>
-                      <div class="card-body">
-                         <h4 class="card-title">
-                            <a href="#">Soft trousers</a>
-                         </h4>
-                         <h5>$24.99</h5>
-                         <p class="card-text">With its nice and soft cotton quality you can work all day without sweating</p>
-                      </div>
-                      <div class="card-footer">
-                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                   </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                   <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="pictures/tr4.jpg" alt=""></a>
-                      <div class="card-body">
-                         <h4 class="card-title">
-                            <a href="#">Impressive trousers</a>
-                         </h4>
-                         <h5>$24.99</h5>
-                         <p class="card-text">You are a gym addict, have great muscles ? This is the trousers. But no worries you can also buy it you are chubby, this trousers fits everyone !</p>
-                      </div>
-                      <div class="card-footer">
-                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                   </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                   <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="pictures/tr5.jpg" alt=""></a>
-                      <div class="card-body">
-                         <h4 class="card-title">
-                            <a href="#">Random trousers</a>
-                         </h4>
-                         <h5>$24.99</h5>
-                         <p class="card-text">If you like random trousers, well I just want to say that this trousers is made for !</p>
-                      </div>
-                      <div class="card-footer">
-                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                   </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                   <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="pictures/tr6.jpg" alt=""></a>
-                      <div class="card-body">
-                         <h4 class="card-title">
-                            <a href="#">Running trousers</a>
-                         </h4>
-                         <h5>$24.99</h5>
-                         <p class="card-text">If you like running marathon this trousers is made for you ! Just buy it lad !</p>
-                      </div>
-                      <div class="card-footer">
-                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                   </div>
-                </div>
-             </div>
              <!-- /.row -->
           </div>
           <!-- /.col-lg-9 -->
