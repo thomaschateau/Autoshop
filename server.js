@@ -26,6 +26,15 @@ app.get('/register', function(req, res) {
 app.get('/basket', function(req, res) {
  res.render('pages/basket');
 });
+app.get('/trousers', function(req, res) {
+ res.render('pages/trousers');
+});
+app.get('/tshirts', function(req, res) {
+ res.render('pages/tshirts');
+});
+app.get('/shoes', function(req, res) {
+ res.render('pages/shoes');
+});
 app.listen(8080);
 console.log('All good to go!');
 console.log(' ');
