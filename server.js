@@ -7,12 +7,12 @@ var app = express();
 app.set('view engine', 'ejs');
 // use res.render to load up an ejs view file
 // index page
-app.get('AutoshopWeb/', function(req, res) {
- res.render('pages/index');
+app.get('/', function(req, res) {
+ res.render('AutoshopWeb/views/pages/index');
 });
 // about page
 app.get('/about', function(req, res) {
  res.render('pages/about');
 });
 app.listen(8080);
-console.log('8080 is the magic port');
+console.log('Hit ctrl + c to shut down the server.');
