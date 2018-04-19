@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <header>
+   <% include ../partials/header %>
+  </header>
+   <body>
+
+      <!-- Page Content -->
+      <section class="py-5">
+         <form class="form-signin" action="login_action.php" method="post">
+            <h2 class="form-signin-heading">Login</h2>
+            <input type="text" class="form-control" name="email" placeholder="Email"name="email" required="" autofocus="" />
+            <input type="password" class="form-control" name="pass" placeholder="Password" required=""/>
+            <label class="checkbox">
+            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me </label>
+            <button class="btn btn-lg btn-block" type="submit" style="background-color: #9b59b6;">Login</button>
+            <a href="register.html" class="m-0 text-center">Not a member? Register here.</p>
+         </form>
+      </section>
+      <!--spacers-->
+      <p class="py-5">
+      </p>
+      <p class="py-5">
+      </p>
+      <p class="py-5">
+      </p>
+      <p class="py-5">
+      </p>
+      <p class="py-5">
+      </p>
+      <p class="py-5">
+      </p>
+
+
+      <!-- Footer -->
+      <footer>
+   <% include ../partials/footer %>
+      </footer>
+   </body>
+</html>

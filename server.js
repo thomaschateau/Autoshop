@@ -29,5 +29,5 @@ app.get('/basket', function(req, res) {
 app.listen(8080);
 console.log('All good to go!');
 console.log(' ');
-console.log('Hit ctrl + c to shut down the server.');
+console.log('Hit CTRL + C to stop the server.');
 console.log(' ');
