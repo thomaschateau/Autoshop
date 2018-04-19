@@ -12,20 +12,7 @@
    <% include ../partials/categories %>
           <!-- /.col-lg-3 -->
 
-          <script>
-          var MongoClient = require('mongodb').MongoClient;
-          var url = "mongodb://localhost:27017/";
-
-          MongoClient.connect(url, function(err, db) {
-            if (err) throw err;
-            var dbo = db.db("autographdb");
-            dbo.collection("customers").findOne({}, function(err, result) {
-              if (err) throw err;
-              console.log(result.name);
-              db.close();
-            });
-          });
-          </script>
+             <% include ../partials/module_trouser_parser %>
 
 
           <div class="col-lg-9">
