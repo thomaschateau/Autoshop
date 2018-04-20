@@ -58,9 +58,6 @@ app.get('/trousers', function(req, res) {
 });
 
 
-
-
-
 app.get('/tshirts', function(req, res) {
  res.render('pages/tshirts');
 });
