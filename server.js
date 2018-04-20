@@ -52,11 +52,28 @@ app.get('/trousers', function(req, res) {
 
 
 app.get('/tshirts', function(req, res) {
- res.render('pages/tshirts');
+  db.collection('tshirts').find().toArray(function(err, result) {
+  if (err) throw err;
+  var tshirts = [];
+  for (var i = 0; i < result.length; i++) {
+    tshirts.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
+  }
+  res.render('pages/tshirts', { tshirts: tshirts });
 });
+});
+
 app.get('/shoes', function(req, res) {
- res.render('pages/shoes');
+  db.collection('shoes').find().toArray(function(err, result) {
+  if (err) throw err;
+  var shoes = [];
+  for (var i = 0; i < result.length; i++) {
+    shoes.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
+  }
+  res.render('pages/shoes', { shoes: shoes });
 });
+});
+
+
 app.listen(8080);
 console.log('All good to go!');
 console.log(' ');
