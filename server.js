@@ -60,9 +60,10 @@ app.get('/all', function(req, res) {
  if (err) throw err;
  var output = "<h1>All the quotes</h1>";
  for (var i = 0; i < result.length; i++) {
-   output += '<div class="col-lg-4 col-md-6 mb-4"> <div class="card h-100"><a href="#"><img class="card-img-top" src="pictures/t5.jpg" alt=""></a> <div class="card-body">'
-   output += '<h4 class="card-title"> <a href="#">' result[i].brand'</a> </h4> <h5>'result[i].type'</h5> <p class="card-text">'result[i].description'</p>'
-   output += '</div> <div class="card-footer"> <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> </div> </div> </div>'
+
+ output += '<div class="col-lg-4 col-md-6 mb-4"> <div class="card h-100"><a href="#"><img class="card-img-top" src="pictures/t5.jpg" alt=""></a> <div class="card-body">'
+ output += '<h4 class="card-title"> <a href="#">' +result[i].brand+'</a> </h4> <h5>'+result[i].type+'</h5> <p class="card-text">'+result[i].description+'</p>'
+ output += '</div> <div class="card-footer"> <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> </div> </div> </div>'
 
 
 
