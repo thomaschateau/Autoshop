@@ -3,6 +3,19 @@ console.log('Node server by Autograph.');
 console.log('Initialising...');
 // server.js
 // load the things we need
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb://localhost:27017/autoshopdb";
+app.use(express.static('public'))
+var db;
+MongoClient.connect(url, function(err, database){
+ if(err) throw err;
+ db = database;
+ app.listen(8080);
+});
+
+
+
+
 var express = require('express');
 var app = express();
 // set the view engine to ejs
