@@ -47,8 +47,9 @@ app.get('/trousers', function(req, res) {
       output += "<p>" + result[i].type + "</p>"
       output += "</div>"
     }
-  res.render('pages/trousers', output);
-  });
+  res.send(output);
+
+
 
  var drinks = [
  { name: 'Bloody Mary', drunkness: 3 },
