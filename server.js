@@ -56,6 +56,12 @@ app.get('/trousers', function(req, res) {
 
 
 app.get('/all', function(req, res) {
+  var drinks = [
+  { brand: 'trousers1', type: 'type1' },
+  { brand: 'trousers2', type: 'type2' },
+  { brand: 'trousers3', type: 'type3' }
+  ];
+
  db.collection('trousers').find().toArray(function(err, result) {
  if (err) throw err;
  var output = "<h1>All the quotes</h1>";
