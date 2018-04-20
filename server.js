@@ -42,12 +42,12 @@ app.get('/trousers', function(req, res) {
     if (err) throw err;
     var output = "<h1>Trousers</h1>";
     for (var i = 0; i < result.length; i++) {
-      output += "<div>"
+      output += "<br><div>"
       output += "<h3>" + result[i].brand + "</h3>"
       output += "<p>" + result[i].type + "</p>"
       output += "</div>"
     }
-  res.render(output);
+  res.render('pages/trousers', output);
   });
 
  var drinks = [
