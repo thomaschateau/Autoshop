@@ -41,20 +41,6 @@ app.get('/basket', function(req, res) {
 
 
 app.get('/trousers', function(req, res) {
-  db.collection('trousers').find().toArray(function(err, result) {
-    if (err) throw err;
-    var output = "<h1>Trousers</h1>";
-    for (var i = 0; i < result.length; i++) {
-      output += "<br><div>"
-      output += "<h3>" + result[i].brand + "</h3>"
-      output += "<p>" + result[i].type + "</p>"
-      output += "</div>"
-    }
-
-  });
-
-
-
  var drinks = [
  { name: 'Bloody Mary', drunkness: 3 },
  { name: 'Martini', drunkness: 5 },
@@ -66,8 +52,23 @@ app.get('/trousers', function(req, res) {
  drinks: drinks,
  tagline: tagline
  });
-   res.send(output);
 });
+
+
+app.get('/all', function(req, res) {
+ db.collection('trousers').find().toArray(function(err, result) {
+ if (err) throw err;
+ var output = "<h1>All the quotes</h1>";
+ for (var i = 0; i < result.length; i++) {
+ output += "<div>"
+ output += "<h3>" + result[i].type + "</h3>"
+ output += "<p>" + result[i].brand + "</p>"
+ output += "</div>"
+ }
+ res.send(output);
+ });
+});
+
 
 
 app.get('/tshirts', function(req, res) {
