@@ -13,13 +13,16 @@
           <!-- /.col-lg-3 -->
 
           <ul>
-           <% drinks.forEach(function(drink) { %>
-           <li>
-           <%= drink.name %> -
-           <%= drink.drunkness %>
-           </li>
-           <% }); %>
-           </ul>
+           <% drinks.forEach(function(drink) {
+             %>
+               <p>
+               <%= drink.name %> -
+               <%= drink.drunkness %>
+             </p>
+             <% });
+
+             %>
+          </ul>
 
 
           <div class="col-lg-9">
