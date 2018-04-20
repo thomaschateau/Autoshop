@@ -23,43 +23,13 @@ var trousers = [];
 var tshirts = [];
 var shoes = [];
 app.get('/', function(req, res) {
-
-      db.collection('trousers').find().toArray(function(err, result) {
-        if (err) {
-          throw err;
-        } else {
-          for (var i = 0; i < result.length; i++) {
-            trousers.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
-            return trousers;
-          }
-        }
-      });
-
-      db.collection('tshirts').find().toArray(function(err, result) {
-        if (err) {
-          throw err;
-        } else {
-          for (var i = 0; i < result.length; i++) {
-            tshirts.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
-          }
-        }
-      });
-
-      db.collection('shoes').find().toArray(function(err, result) {
-        if (err) {
-          throw err;
-        } else {
-          for (var i = 0; i < result.length; i++) {
-            shoes.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
-          }
-        }
-      });
-      console.log(trousers + tshirts + shoes);
-      res.render('pages/index', {
-        trousers: trousers,
-        tshirts: tshirts,
-        shoes: shoes
-      });
+  db.collection('promotions').find().toArray(function(err, result) {
+  if (err) throw err;
+  var promotions = [];
+  for (var i = 0; i < result.length; i++) {
+    promotions.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
+  }
+  res.render('pages/index', { promotions: promotions });
 });
 
 app.get('/about', function(req, res) {
