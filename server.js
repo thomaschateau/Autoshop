@@ -31,20 +31,22 @@ app.get('/trousers', function(req, res) {
   for (var i = 0; i < result.length; i++) {
     trousers.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
+  });
   db.collection('tshirts').find().toArray(function(err, result) {
   if (err) throw err;
   var tshirts = [];
   for (var i = 0; i < result.length; i++) {
     tshirts.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
+  });
   db.collection('shoes').find().toArray(function(err, result) {
   if (err) throw err;
   var shoes = [];
   for (var i = 0; i < result.length; i++) {
     shoes.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
+  });
   res.render('pages/index', { trousers: trousers, tshirts: tshirts, shoes: shoes });
-});
 });
 
 
