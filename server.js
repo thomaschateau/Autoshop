@@ -4,7 +4,8 @@ console.log('Initialising...');
 // server.js
 // load the things we need
 const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb://localhost:27017/autoshopdb";
+
+const url = "mongodb://autoshopdb@localhost/trousers";
 var express = require('express');
 var app = express();
 app.use(express.static('public'))
@@ -14,10 +15,6 @@ MongoClient.connect(url, function(err, database){
  db = database;
  app.listen(8080);
 });
-
-
-
-
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
