@@ -42,7 +42,7 @@ app.get('/basket', function(req, res) {
 app.get('/trousers', function(req, res) {
   db.collection('trousers').find().toArray(function(err, result) {
   if (err) throw err;
-  var trousers;
+  var trousers = [];
   for (var i = 0; i < result.length; i++) {
     trousers.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
