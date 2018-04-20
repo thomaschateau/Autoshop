@@ -50,7 +50,7 @@ app.get('/trousers', function(req, res) {
   ];
   for (var i = 0; i < result.length; i++) {
     trousers.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
-    return trousers;
+    //return trousers;
         console.log(result[i].brand);
         console.log(trousers.brand);
   }
