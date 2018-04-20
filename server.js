@@ -66,7 +66,7 @@ app.get('/all', function(req, res) {
  if (err) throw err;
  for (var i = 0; i < result.length; i++) {
     console.log(result[i].brand);
-     console.log(trousers.brand);
+     console.log(<%= trousers.brand %>);
 
  }
  console.log("didny find shit");
