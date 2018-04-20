@@ -13,104 +13,26 @@
 
           <div class="col-lg-9">
              <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 mt-4">
-                   <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="pictures/s1.jpg" alt=""></a>
-                      <div class="card-body">
-                         <h4 class="card-title">
-                            <a href="#">Super shoes</a>
-                         </h4>
-                         <h5>$24.99</h5>
-                         <p class="card-text">These shoes are made for you if you like going to Uni</p>
-                      </div>
-                      <div class="card-footer">
-                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
+           <% shoes.forEach(function(item) { %>
+             <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                   <a href="#"><img class="card-img-top" src="pictures/t5.jpg" alt=""></a>
+                   <div class="card-body">
+                      <h4 class="card-title">
+                         <a href="#"><%= item.brand %></a>
+                      </h4>
+                      <h5><%= item.type %></h5>
+                      <p class="card-text"><%= item.description %></p>
                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 mt-4">
-                   <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="pictures/s2.jpg" alt=""></a>
-                      <div class="card-body">
-                         <h4 class="card-title">
-                            <a href="#">Incredible shoes</a>
-                         </h4>
-                         <h5>$24.99</h5>
-                         <p class="card-text">You want to impress you friends ? Be smart and buy these shoes !</p>
-                      </div>
-                      <div class="card-footer">
-                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                   </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 mt-4">
-                   <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="pictures/s3.jpg" alt=""></a>
-                      <div class="card-body">
-                         <h4 class="card-title">
-                            <a href="#">Soft shoes</a>
-                         </h4>
-                         <h5>$24.99</h5>
-                         <p class="card-text">With its nice and soft cotton quality you can work all day without sweating</p>
-                      </div>
-                      <div class="card-footer">
-                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                   </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                   <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="pictures/s4.jpg" alt=""></a>
-                      <div class="card-body">
-                         <h4 class="card-title">
-                            <a href="#">Impressive shoes</a>
-                         </h4>
-                         <h5>$24.99</h5>
-                         <p class="card-text">You are a gym addict, have great muscles ? These are the shoes. But no worries you can also buy it you are chubby, these shoes fit everyone !</p>
-                      </div>
-                      <div class="card-footer">
-                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                   </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                   <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="pictures/s5.jpg" alt=""></a>
-                      <div class="card-body">
-                         <h4 class="card-title">
-                            <a href="#">Random shoes</a>
-                         </h4>
-                         <h5>$24.99</h5>
-                         <p class="card-text">If you like random shoes, well I just want to say that these shoes are made for you!</p>
-                      </div>
-                      <div class="card-footer">
-                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                   </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                   <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="pictures/s6.jpg" alt=""></a>
-                      <div class="card-body">
-                         <h4 class="card-title">
-                            <a href="#">Running shoes</a>
-                         </h4>
-                         <h5>$24.99</h5>
-                         <p class="card-text">If you like running marathon these shoes are made for you ! Just buy it lad !</p>
-                      </div>
-                      <div class="card-footer">
-                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
+                   <div class="card-footer">
+                      <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                    </div>
                 </div>
              </div>
-             <!-- /.row -->
-          </div>
-          <!-- /.col-lg-9 -->
-       </div>
-       <!-- /.row -->
-    </div>
-    <!-- /.container -->
+             <% });%>
+           </div>
+        </div>
+
 
   </body>
     <!-- Footer -->
