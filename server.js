@@ -19,9 +19,6 @@ MongoClient.connect(url, function(err, database){
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 // render pages
-var trousers = [];
-var tshirts = [];
-var shoes = [];
 app.get('/', function(req, res) {
   db.collection('promotions').find().toArray(function(err, result) {
   if (err) throw err;
@@ -30,6 +27,7 @@ app.get('/', function(req, res) {
     promotions.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
   res.render('pages/index', { promotions: promotions });
+});
 });
 
 app.get('/about', function(req, res) {
