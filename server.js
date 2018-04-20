@@ -5,7 +5,7 @@ console.log('Initialising...');
 // load the things we need
 const MongoClient = require('mongodb').MongoClient;
 
-const url = "mongodb://autoshopdb@localhost/trousers";
+const url = "mongodb://localhost:27017/star_wars_quotes";
 var express = require('express');
 var app = express();
 app.use(express.static('public'))
