@@ -19,17 +19,18 @@ MongoClient.connect(url, function(err, database){
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 // render pages
-var trousers = [];
-var tshirts = [];
-var shoes = [];
-app.get('/', function(req, res) {
 
+app.get('/', function(req, res) {
+  var trousers = [];
+  var tshirts = [];
+  var shoes = [];
       db.collection('trousers').find().toArray(function(err, result) {
         if (err) {
           throw err;
         } else {
           for (var i = 0; i < result.length; i++) {
             trousers.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
+            return trousers;
           }
         }
       });
