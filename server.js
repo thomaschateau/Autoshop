@@ -44,8 +44,9 @@ app.get('/', function(req, res) {
     shoes.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
     return shoes;
+      console.log(' shoes1' + shoes);
   });
-  console.log(' shoes' + shoes);
+  console.log(' shoes2' + shoes);
   res.render('pages/index', { trousers: trousers, tshirts: tshirts, shoes: shoes });
 });
 
