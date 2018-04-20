@@ -56,7 +56,7 @@ app.get('/trousers', function(req, res) {
 
 
 app.get('/all', function(req, res) {
-  var drinks = [
+  var trousers = [
   { brand: 'trousers1', type: 'type1' },
   { brand: 'trousers2', type: 'type2' },
   { brand: 'trousers3', type: 'type3' }
@@ -64,17 +64,11 @@ app.get('/all', function(req, res) {
 
  db.collection('trousers').find().toArray(function(err, result) {
  if (err) throw err;
- var output = "<h1>All the quotes</h1>";
  for (var i = 0; i < result.length; i++) {
-
- output += '<div class="col-lg-4 col-md-6 mb-4"> <div class="card h-100"><a href="#"><img class="card-img-top" src="pictures/t5.jpg" alt=""></a> <div class="card-body">'
- output += '<h4 class="card-title"> <a href="#">' +result[i].brand+'</a> </h4> <h5>'+result[i].type+'</h5> <p class="card-text">'+result[i].description+'</p>'
- output += '</div> <div class="card-footer"> <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> </div> </div> </div>'
-
-
-
+    console.log(result[i].brand);
  }
- res.send(output);
+ console.log("didny find shit");
+ res.send(trousers);
  });
 });
 
