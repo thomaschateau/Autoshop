@@ -39,20 +39,12 @@ app.get('/basket', function(req, res) {
 });
 
 
-
 app.get('/trousers', function(req, res) {
   db.collection('trousers').find().toArray(function(err, result) {
   if (err) throw err;
-  var trousers = [
-  { brand: 'trousers1', type: 'type1' },
-  { brand: 'trousers2', type: 'type2' },
-  { brand: 'trousers3', type: 10 }
-  ];
+  var trousers;
   for (var i = 0; i < result.length; i++) {
     trousers.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
-    //return trousers;
-        console.log(result[i].brand);
-        console.log(trousers.brand);
   }
   res.render('pages/trousers', { trousers: trousers });
 });
