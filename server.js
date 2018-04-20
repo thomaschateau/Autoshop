@@ -47,7 +47,7 @@ app.get('/trousers', function(req, res) {
       output += "<p>" + result[i].type + "</p>"
       output += "</div>"
     }
-  res.send(output);
+  res.render(output);
   });
 
  var drinks = [
@@ -61,6 +61,8 @@ app.get('/trousers', function(req, res) {
  tagline: tagline
  });
 });
+
+
 app.get('/tshirts', function(req, res) {
  res.render('pages/tshirts');
 });
