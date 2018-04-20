@@ -29,21 +29,18 @@ app.get('/', function(req, res) {
   for (var i = 0; i < result.length; i++) {
     trousers.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
-  return trousers;
   });
   db.collection('tshirts').find().toArray(function(err, result) {
   if (err) throw err;
   for (var i = 0; i < result.length; i++) {
     tshirts.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
-    return tshirts;
   });
   db.collection('shoes').find().toArray(function(err, result) {
   if (err) throw err;
   for (var i = 0; i < result.length; i++) {
     shoes.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
-    return shoes;
       console.log(' shoes1' + shoes);
   });
   console.log(' shoes2' + shoes);
