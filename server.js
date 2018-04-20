@@ -24,8 +24,6 @@ app.get('/', function(req, res) {
   var trousers = [];
   var tshirts = [];
   var shoes = [];
-
-
       db.collection('trousers').find().toArray(function(err, result) {
         if (err) {
           throw err;
@@ -55,6 +53,7 @@ app.get('/', function(req, res) {
           }
         }
       });
+      console.log(trousers + tshirts + shoes);
       res.render('pages/index', {
         trousers: trousers,
         tshirts: tshirts,
