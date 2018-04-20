@@ -19,11 +19,11 @@ MongoClient.connect(url, function(err, database){
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 // render pages
-
+var trousers = [];
+var tshirts = [];
+var shoes = [];
 app.get('/', function(req, res) {
-  var trousers = [];
-  var tshirts = [];
-  var shoes = [];
+
       db.collection('trousers').find().toArray(function(err, result) {
         if (err) {
           throw err;
