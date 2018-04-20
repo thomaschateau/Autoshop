@@ -55,6 +55,7 @@ app.get('/trousers', function(req, res) {
   }
   res.render('pages/trousers', { trousers: trousers });
 });
+});
 
 
 
