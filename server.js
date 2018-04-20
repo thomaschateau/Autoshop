@@ -45,6 +45,7 @@ app.get('/', function(req, res) {
   }
     return shoes;
   });
+  console.log(' shoes' + shoes);
   res.render('pages/index', { trousers: trousers, tshirts: tshirts, shoes: shoes });
 });
 
