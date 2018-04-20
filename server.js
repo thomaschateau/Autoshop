@@ -49,12 +49,11 @@ app.get('/trousers', function(req, res) {
   { brand: 'trousers3', type: 10 }
   ];
   for (var i = 0; i < result.length; i++) {
-  trousers += [{ brand: result[i].brand, type: result[i].type, description: result[i].description }];
+    //trousers += [{ brand: result[i].brand, type: result[i].type, description: result[i].description }];
+        console.log(result[i].brand);
+        console.log(trousers.brand);
   }
-
- res.render('pages/trousers', {
- trousers: trousers
- });
+  res.render('pages/trousers', { trousers: trousers });
 });
 
 
