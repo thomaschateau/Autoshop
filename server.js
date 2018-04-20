@@ -19,12 +19,8 @@ MongoClient.connect(url, function(err, database){
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 // render pages
+
 app.get('/', function(req, res) {
- res.render('pages/index');
-});
-
-
-app.get('/trousers', function(req, res) {
     var trousers = [];
       var tshirts = [];
         var shoes = [];
