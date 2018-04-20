@@ -41,38 +41,23 @@ app.get('/basket', function(req, res) {
 
 
 app.get('/trousers', function(req, res) {
- var drinks = [
- { name: 'Bloody Mary', drunkness: 3 },
- { name: 'Martini', drunkness: 5 },
- { name: 'Scotch', drunkness: 10 }
- ];
-
- var tagline = "Any code of your own that you havent looked at for six or more months might as well have been written by someone else."
- res.render('pages/trousers', {
- drinks: drinks,
- tagline: tagline
- });
-});
-
-
-app.get('/all', function(req, res) {
+  db.collection('trousers').find().toArray(function(err, result) {
+  if (err) throw err;
   var trousers = [
   { brand: 'trousers1', type: 'type1' },
   { brand: 'trousers2', type: 'type2' },
-  { brand: 'trousers3', type: 'type3' }
+  { brand: 'trousers3', type: 10 }
   ];
+  for (var i = 0; i < result.length; i++) {
+  trousers += [{ brand: result[i].brand, type: result[i].type, description: result[i].description }];
+  }
 
- db.collection('trousers').find().toArray(function(err, result) {
- if (err) throw err;
- for (var i = 0; i < result.length; i++) {
-    console.log(result[i].brand);
-     console.log(<%= trousers.brand %>);
-
- }
- console.log("didny find shit");
- res.send(trousers);
+ res.render('pages/trousers', {
+ trousers: trousers
  });
 });
+
+
 
 
 
