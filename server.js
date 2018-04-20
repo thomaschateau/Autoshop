@@ -37,6 +37,9 @@ app.get('/register', function(req, res) {
 app.get('/basket', function(req, res) {
  res.render('pages/basket');
 });
+
+
+
 app.get('/trousers', function(req, res) {
   db.collection('trousers').find().toArray(function(err, result) {
     if (err) throw err;
@@ -47,7 +50,8 @@ app.get('/trousers', function(req, res) {
       output += "<p>" + result[i].type + "</p>"
       output += "</div>"
     }
-  res.send(output);
+
+  });
 
 
 
@@ -56,11 +60,13 @@ app.get('/trousers', function(req, res) {
  { name: 'Martini', drunkness: 5 },
  { name: 'Scotch', drunkness: 10 }
  ];
+
  var tagline = "Any code of your own that you havent looked at for six or more months might as well have been written by someone else."
  res.render('pages/trousers', {
  drinks: drinks,
  tagline: tagline
  });
+   res.send(output);
 });
 
 
