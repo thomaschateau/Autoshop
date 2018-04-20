@@ -36,25 +36,9 @@
 
 
 
-        app.get('/all', function(req, res) {
-         db.collection('trousers').find().toArray(function(err, result) {
-           if (err) throw err;
-           var output = "<h1>All the quotes</h1>";
-           for (var i = 0; i < result.length; i++) {
-             output += "<div>"
-             output += "<h3>" + result[i].brand + "</h3>"
-             output += "<p>" + result[i].type + "</p>"
-             output += "</div>"
-           }
-         res.send(output);
-         });
-        });
-
-
-
+        <footer>
+        <% include ../partials/footer %>
+        </footer>
   </body>
-    <!-- Footer -->
-    <footer>
- <% include ../partials/footer %>
-    </footer>
+
 </html>

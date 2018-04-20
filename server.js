@@ -16,21 +16,6 @@ MongoClient.connect(url, function(err, database){
 });
 
 
-
-        app.get('/all', function(req, res) {
-         db.collection('trousers').find().toArray(function(err, result) {
-           if (err) throw err;
-           var output = "<h1>Trousers</h1>";
-           for (var i = 0; i < result.length; i++) {
-             output += "<div>"
-             output += "<h3>" + result[i].brand + "</h3>"
-             output += "<p>" + result[i].type + "</p>"
-             output += "</div>"
-           }
-         res.send(output);
-         });
-        });
-
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 // render pages
@@ -53,6 +38,18 @@ app.get('/basket', function(req, res) {
  res.render('pages/basket');
 });
 app.get('/trousers', function(req, res) {
+  db.collection('trousers').find().toArray(function(err, result) {
+    if (err) throw err;
+    var output = "<h1>Trousers</h1>";
+    for (var i = 0; i < result.length; i++) {
+      output += "<div>"
+      output += "<h3>" + result[i].brand + "</h3>"
+      output += "<p>" + result[i].type + "</p>"
+      output += "</div>"
+    }
+  res.send(output);
+  });
+
  var drinks = [
  { name: 'Bloody Mary', drunkness: 3 },
  { name: 'Martini', drunkness: 5 },
