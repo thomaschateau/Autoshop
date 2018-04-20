@@ -25,23 +25,23 @@ app.get('/', function(req, res) {
 
 
 app.get('/trousers', function(req, res) {
+    var trousers = [];
+      var tshirts = [];
+        var shoes = [];
   db.collection('trousers').find().toArray(function(err, result) {
   if (err) throw err;
-  var trousers = [];
   for (var i = 0; i < result.length; i++) {
     trousers.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
   });
   db.collection('tshirts').find().toArray(function(err, result) {
   if (err) throw err;
-  var tshirts = [];
   for (var i = 0; i < result.length; i++) {
     tshirts.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
   });
   db.collection('shoes').find().toArray(function(err, result) {
   if (err) throw err;
-  var shoes = [];
   for (var i = 0; i < result.length; i++) {
     shoes.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
