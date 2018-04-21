@@ -46,6 +46,9 @@ app.get('/basket', function(req, res) {
  res.render('pages/basket');
 });
 
+app.get('/item', function(req, res) {
+ res.render('pages/item');
+});
 
 app.get('/trousers', function(req, res) {
   db.collection('trousers').find().toArray(function(err, result) {
@@ -55,7 +58,6 @@ app.get('/trousers', function(req, res) {
     trousers.push({"sku": result[i].sku, "brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
   res.render('pages/trousers', { trousers: trousers });
-  
 });
 });
 
