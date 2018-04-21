@@ -55,11 +55,9 @@ app.get('/trousers', function(req, res) {
     trousers.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
   }
   res.render('pages/trousers', { trousers: trousers });
-  window.onload = function() {
-    var file = 5;
-    document.getElementById('t_img').src = "../pictures/t" + file + ".jpg";
-    console.log("../pictures/t" + file + ".jpg");
-};
+  var file = 5;
+  document.getElementById('t_img').src = "../pictures/t" + file + ".jpg";
+  console.log("../pictures/t" + file + ".jpg");
 });
 });
 
