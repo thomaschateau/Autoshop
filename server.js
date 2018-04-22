@@ -15,8 +15,8 @@ const store = new MongoDBStore({
 });
 
 const url = "mongodb://localhost:27017/autoshopdb";
-var app = express();
-app.use(express.static('public'))
+//var app = express();
+//app.use(express.static('public'))
 var db;
 MongoClient.connect(url, function(err, database){
  if(err) throw err;
