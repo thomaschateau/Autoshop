@@ -49,9 +49,13 @@ app.get('/basket', function(req, res) {
  res.render('pages/basket');
 });
 
-app.get('/item', function(req, res) {
- res.render('pages/item');
+
+app.get('/item', function(req, res){
+var x = req.query.x;
+var y = req.query.y;
+ res.send("X + Y="+(x+y));
 });
+
 
 app.get('/trousers', function(req, res) {
   db.collection('trousers').find().toArray(function(err, result) {
