@@ -57,13 +57,14 @@ app.get('/trousers', function(req, res) {
   db.collection('trousers').find().toArray(function(err, result) {
   if (err) throw err;
   var trousers = [];
-  var path = "/"
+  var path = [];
   for (var i = 0; i < result.length; i++) {
     trousers.push({"sku": result[i].sku, "brand": result[i].brand, "type": result[i].type, "description": result[i].description});
-    path += result[i].sku + ".jpg";
-    console.log('path: ' + path);
+    path.push({"path": "/" + result[i].sku);
+    console.log(path);
+
   }
-  res.render('pages/trousers', { trousers: trousers });
+  res.render('pages/trousers', { trousers: trousers, path: path });
 });
 });
 
