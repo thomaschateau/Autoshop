@@ -3,54 +3,25 @@ console.log('Node server by Autograph.');
 console.log('Initialising...');
 // server.js
 // load the things we need
-'use strict';
-
-const app = require('express')();
-const session = require('express-session');
 const MongoClient = require('mongodb').MongoClient;
-const MongoDBStore = require('connect-mongodb-session')(session);
-const store = new MongoDBStore({
-    uri: 'mongodb://localhost:27017/autoshopdb',
-    collection: 'sessions'
-});
 
 const url = "mongodb://localhost:27017/autoshopdb";
-//var app = express();
-//app.use(express.static('public'))
+var express = require('express');
+var app = express();
+app.use(express.static('public'))
 var db;
 MongoClient.connect(url, function(err, database){
  if(err) throw err;
  db = database;
 });
 
-
-app.use(session({
-  secret: 'secret session key',
-  resave: false,
-  saveUninitialized: true,
-  store: store,
-  unset: 'destroy',
-  name: 'session cookie name'
-}));
-
-app.get('/', (req, res) => {
-  if(!req.session.test) {
-    req.session.test = 'OK';
-    res.send('OK');
-  }
-});
-
-app.get('/test', (req, res) => {
-  res.send(req.session.test); // 'OK'
-});
-
-
+var bodyParser = require ('body-parser');
+app.use (bodyParser ());
 
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 // render pages
-/*
 app.get('/', function(req, res) {
   db.collection('promotions').find().toArray(function(err, result) {
   if (err) throw err;
@@ -125,7 +96,7 @@ app.get('/shoes', function(req, res) {
   res.render('pages/shoes', { shoes: shoes });
 });
 });
-*/
+
 
 app.listen(8080);
 console.log('All good to go!');
