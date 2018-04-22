@@ -15,6 +15,9 @@ MongoClient.connect(url, function(err, database){
  db = database;
 });
 
+var bodyParser = require ('body-parser');
+app.use (bodyParser ());
+
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
