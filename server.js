@@ -7,7 +7,6 @@ const MongoClient = require('mongodb').MongoClient;
 
 const url = "mongodb://localhost:27017/autoshopdb";
 var express = require('express');
-var expressHbs = require('express-handlebars');
 var app = express();
 app.use(express.static('public'))
 var db;
@@ -60,6 +59,18 @@ app.get('/item', function(req, res){
 var x = req.query.x;
 var y = req.query.y;
  res.send("X + Y=" + parseInt(x+y));
+});
+
+app.get('/promotions', function(req, res) {
+  db.collection('promotions').find().toArray(function(err, result) {
+  if (err) throw err;
+  var promotions = [];
+  for (var i = 0; i < result.length; i++) {
+    trousers.push({"sku": result[i].sku, "brand": result[i].brand, "type": result[i].type, "description": result[i].description, "path": "/" + result[i].sku + ".jpg"});
+    //console.log(path);
+  }
+  res.render('pages/promotions', { promotions: promotions });
+});
 });
 
 
