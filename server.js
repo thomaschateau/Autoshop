@@ -7,6 +7,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 const url = "mongodb://localhost:27017/autoshopdb";
 var express = require('express');
+var expressHbs = require('express-handlebars');
 var app = express();
 app.use(express.static('public'))
 var db;
