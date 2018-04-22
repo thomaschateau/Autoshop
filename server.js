@@ -66,7 +66,7 @@ app.get('/promotions', function(req, res) {
   if (err) throw err;
   var promotions = [];
   for (var i = 0; i < result.length; i++) {
-    trousers.push({"sku": result[i].sku, "brand": result[i].brand, "type": result[i].type, "description": result[i].description, "path": "/" + result[i].sku + ".jpg"});
+    promotions.push({"sku": result[i].sku, "brand": result[i].brand, "type": result[i].type, "description": result[i].description, "path": "/" + result[i].sku + ".jpg"});
     //console.log(path);
   }
   res.render('pages/promotions', { promotions: promotions });
