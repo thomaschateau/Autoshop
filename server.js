@@ -53,7 +53,7 @@ app.get('/basket', function(req, res) {
 app.get('/item', function(req, res){
 var x = req.query.x;
 var y = req.query.y;
- res.send("X + Y="+(x+y));
+ res.send("X + Y=" + parseInt(x+y));
 });
 
 
