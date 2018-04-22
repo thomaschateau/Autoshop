@@ -61,7 +61,7 @@ app.get('/trousers', function(req, res) {
     trousers.push({"sku": result[i].sku, "brand": result[i].brand, "type": result[i].type, "description": result[i].description, "path": "/" + result[i].sku + ".jpg"});
     //console.log(path);
   }
-  res.render('pages/trousers', { trousers: trousers, path: path });
+  res.render('pages/trousers', { trousers: trousers });
 });
 });
 
