@@ -33,6 +33,10 @@ app.get('/', function(req, res) {
 });
 });
 
+
+
+
+
 app.get('/about', function(req, res) {
  res.render('pages/about');
 });
@@ -56,8 +60,11 @@ var quest = req.query.quest;
 });
 
 app.get('/item', function(req, res){
+var request = require('request');
+
+
 console.log(req.query.sku);
-db.collection('trousers').find({sku:req.query.sku}).toArray(function(err, result) {
+db.collection('trousers').find({sku: req.query.sku}).toArray(function(err, result) {
 if (err) throw err;
 var search = [];
   for (var i = 0; i < result.length; i++) {
@@ -70,7 +77,16 @@ var search = [];
                "quantity": result[i].quantity,
                "price": result[i].price});
   }
-res.render('pages/item', { search: search });
+//res.render('pages/item', { search: search });
+request.post(
+    'pages/item',
+    { json: { key: 'value' } },
+    function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log(body)
+        }
+    }
+);
 });
 });
 
