@@ -11,20 +11,21 @@
 
             <% include ../partials/categories %>
             <!-- /.col-lg-3 -->
-<% search.forEach(function(item) { %>
-  <%= item.brand %>
-           <% });%>
+
+
             <div class="col-lg-9">
 
               <div class="card mt-4">
                 <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
                 <div class="card-body">
-                  <h3 class="card-title"><%= search.brand %></h3>
-                  <h4>£<%= search.price %></h4>
-                  <p class="card-text"><%= search.description %></p>
+                  <% search.forEach(function(item) { %>
+                  <h3 class="card-title"><%= item.brand %></h3>
+                  <h4>£<%= item.price %></h4>
+                  <p class="card-text"><%= item.description %></p>
                   <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
                   4.0 stars
-                   <small class="text-muted"> Item No: <%= search.sku %></small>
+                   <small class="text-muted"> Item No: <%= item.sku %></small>
+                   <% });%>
                 </div>
               </div>
               <!-- /.card -->
