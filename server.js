@@ -97,16 +97,15 @@ app.get('/trousers', function(req, res) {
   db.collection('trousers').find().toArray(function(err, result) {
   if (err) throw err;
   var trousers = [];
-  var content = "<h2>This is server.js generated test h2 thing</h2>";
   for (var i = 0; i < result.length; i++) {
     trousers.push({"sku": result[i].sku,
      "brand": result[i].brand,
       "type": result[i].type,
       "description": result[i].description,
-     "img_holder": '<a href="#"><img id="t_img" class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
+     "img_holder": '<a href=/item?sku="' + result[i].sku + '"><img id="t_img" class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
     //console.log(path);
   }
-  res.render('pages/trousers', { trousers: trousers, content: content });
+  res.render('pages/trousers', { trousers: trousers});
 });
 });
 
