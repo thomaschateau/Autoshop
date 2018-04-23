@@ -60,6 +60,9 @@ var quest = req.query.quest;
 });
 
 app.get('/item', function(req, res){
+var request = require('request');
+
+
 console.log(req.query.sku);
 db.collection('trousers').find({sku: req.query.sku}).toArray(function(err, result) {
 if (err) throw err;
@@ -74,17 +77,7 @@ var search = [];
                "quantity": result[i].quantity,
                "price": result[i].price});
   }
-//res.render('pages/item', { search: search });
-var buildUrl = require('build-url');
-
-buildUrl('http://example.com', {
-  path: 'about',
-  hash: 'contact',
-  queryParams: {
-    foo: 5,
-    bar: ['foo', 'bar']
-  }
-});
+res.render('pages/item', { search: search });
 });
 });
 
