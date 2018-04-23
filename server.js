@@ -57,7 +57,7 @@ var quest = req.query.quest;
 
 app.get('/item', function(req, res){
 var sku = req.query.sku;
-res.render('pages/index', { sku: sku });
+res.render('pages/item', { sku: sku });
 });
 
 app.get('/promotions', function(req, res) {
