@@ -61,7 +61,7 @@ db.collection('trousers').find(sku).toArray(function(err, result) {
 if (err) throw err;
 var search = [];
 search.push({"sku": result[i].sku,
-          "brand": result[i].brand, 
+          "brand": result[i].brand,
           "type": result[i].type,
           "description": result[i].description,
            "path": "/" + result[i].sku + ".png",
@@ -69,6 +69,7 @@ search.push({"sku": result[i].sku,
            "quantity": result[i].quantity,
            "price": result[i].price,});
 res.render('pages/item', { search: search });
+});
 });
 
 app.get('/promotions', function(req, res) {
