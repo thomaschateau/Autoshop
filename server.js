@@ -56,9 +56,8 @@ var quest = req.query.quest;
 });
 
 app.get('/item', function(req, res){
-var sku = req.query.sku;
-console.log(sku);
-db.collection('trousers').find({sku:sku}).toArray(function(err, result) {
+console.log(req.query.sku);
+db.collection('trousers').find({sku:req.query.sku}).toArray(function(err, result) {
 if (err) throw err;
 var search = [];
 search.push({"sku": result[i].sku,
