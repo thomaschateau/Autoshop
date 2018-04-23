@@ -57,7 +57,7 @@ var quest = req.query.quest;
 
 app.get('/item', function(req, res){
 console.log(req.query.sku);
-db.collection('trousers').find({sku:req.query.sku}).toArray(function(err, result) {
+db.collection('trousers').find({"sku":req.query.sku}).toArray(function(err, result) {
 if (err) throw err;
 var search = [];
 search.push({"sku": result[i].sku,
