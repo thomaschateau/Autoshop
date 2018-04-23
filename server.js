@@ -103,8 +103,7 @@ app.get('/trousers', function(req, res) {
      "brand": result[i].brand,
       "type": result[i].type,
       "description": result[i].description,
-       "path": "/" + result[i].sku + ".jpg",
-     "img_holder": '<a href="#"><img id="t_img" class="card-img-top" src="../itm_placeholder.png" alt=""></a>'});
+     "img_holder": '<a href="#"><img id="t_img" class="card-img-top" src="../' + result[i].sku + '.png" alt=""></a>'});
     //console.log(path);
   }
   res.render('pages/trousers', { trousers: trousers, content: content });
