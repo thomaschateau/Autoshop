@@ -27,7 +27,9 @@ app.get('/', function(req, res) {
   if (err) throw err;
   var promotions = [];
   for (var i = 0; i < result.length; i++) {
-    promotions.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
+    promotions.push({"brand": result[i].brand,
+     "type": result[i].type,
+      "description": result[i].description});
   }
   res.render('pages/index', { promotions: promotions });
 });
@@ -96,7 +98,12 @@ app.get('/trousers', function(req, res) {
   if (err) throw err;
   var trousers = [];
   for (var i = 0; i < result.length; i++) {
-    trousers.push({"sku": result[i].sku, "brand": result[i].brand, "type": result[i].type, "description": result[i].description, "path": "/" + result[i].sku + ".jpg"});
+    trousers.push({"sku": result[i].sku,
+     "brand": result[i].brand,
+      "type": result[i].type,
+      "description": result[i].description,
+       "path": "/" + result[i].sku + ".jpg",
+     "test": "<h2>This is server.js generated test h2 thing</h2>"});
     //console.log(path);
   }
   res.render('pages/trousers', { trousers: trousers });
