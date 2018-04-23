@@ -18,6 +18,15 @@
                 <img class="card-img-top img-fluid" src="/promo1.png" alt="">
                 <div class="card-body">
                   <% search.forEach(function(item) { %>
+                    <div class="row">
+                    <div class="col-md-4">
+                      <div class="thumbnail">
+                        <a>
+                                            <%- item.img_holder %>
+                        </a>
+                      </div>
+                    </div>
+                    <br>
 
                   <h3 class="card-title"><%= item.brand %></h3>
                   <h4>£<%= item.price %></h4>
@@ -30,14 +39,7 @@
 
 
 
-                  <div class="row">
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a>
-                                          <%- item.img_holder %>
-                      </a>
-                    </div>
-                  </div>
+
 
 
 
