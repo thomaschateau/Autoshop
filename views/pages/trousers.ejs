@@ -18,8 +18,9 @@
              <div class="row">
            <% trousers.forEach(function(item) { %>
              <div class="col-lg-4 col-md-6 mb-4">
+                                <%- item.img_holder %>
                 <div class="card h-100">
-                 <%- item.img_holder %>
+
                    <div class="card-body">
                       <h4 class="card-title">
                          <a href="/item?x=5&x=22"><%= item.brand %></a>
