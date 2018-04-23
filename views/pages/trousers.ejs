@@ -19,8 +19,7 @@
            <% trousers.forEach(function(item) { %>
              <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
-                   <a href="#"><img id="t_img" class="card-img-top" src="../itm_placeholder.png" alt=""></a>
-
+                 <%- item.img_holder %>
                    <div class="card-body">
                       <h4 class="card-title">
                          <a href="/item?x=5&x=22"><%= item.brand %></a>
@@ -40,7 +39,7 @@
              <% });%>
            </div>
         </div>
-        <%- content %>
+
                 </div>
         <div class="jumbotron jumbotron-fluid" style="background-color: #ff5152;">
         <div class="container">
