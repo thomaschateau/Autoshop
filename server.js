@@ -57,7 +57,18 @@ var quest = req.query.quest;
 
 app.get('/item', function(req, res){
 var sku = req.query.sku;
-res.render('pages/item', { sku: sku });
+db.collection('trousers').find(sku).toArray(function(err, result) {
+if (err) throw err;
+var search = [];
+search.push({"sku": result[i].sku,
+          "brand": result[i].brand, 
+          "type": result[i].type,
+          "description": result[i].description,
+           "path": "/" + result[i].sku + ".png",
+           "colour": result[i].color,
+           "quantity": result[i].quantity,
+           "price": result[i].price,});
+res.render('pages/item', { search: search });
 });
 
 app.get('/promotions', function(req, res) {
