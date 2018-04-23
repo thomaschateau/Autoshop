@@ -81,7 +81,7 @@ buildUrl('http://example.com', {
   path: 'about',
   hash: 'contact',
   queryParams: {
-    foo: bar,
+    foo: 5,
     bar: ['foo', 'bar']
   }
 });
