@@ -74,7 +74,8 @@ var search = [];
                "path": "/" + result[i].sku + ".png",
                "colour": result[i].colour,
                "quantity": result[i].quantity,
-               "price": result[i].price});
+               "price": result[i].price,
+               "img_holder": '<a><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
   }
 res.render('pages/item', { search: search });
 });
@@ -102,7 +103,7 @@ app.get('/trousers', function(req, res) {
      "brand": result[i].brand,
       "type": result[i].type,
       "description": result[i].description,
-     "img_holder": '<a href="/item?sku=' + result[i].sku + '"><img id="t_img" class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
+     "img_holder": '<a href="/item?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
     //console.log(path);
   }
   res.render('pages/trousers', { trousers: trousers});
