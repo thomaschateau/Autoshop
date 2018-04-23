@@ -14,7 +14,7 @@ MongoClient.connect(url, function(err, database){
  if(err) throw err;
  db = database;
 });
-
+console.log('.');
 var bodyParser = require ('body-parser');
 app.use (bodyParser ());
 
@@ -34,7 +34,7 @@ app.get('/', function(req, res) {
 });
 
 
-
+console.log('..');
 
 
 app.get('/about', function(req, res) {
@@ -52,7 +52,7 @@ app.get('/register', function(req, res) {
 app.get('/basket', function(req, res) {
  res.render('pages/basket');
 });
-
+console.log('...');
 app.get('/getform', function(req, res){
 var name = req.query.name;
 var quest = req.query.quest;
@@ -90,7 +90,7 @@ app.get('/promotions', function(req, res) {
 });
 });
 
-
+console.log('....');
 app.get('/trousers', function(req, res) {
   db.collection('trousers').find().toArray(function(err, result) {
   if (err) throw err;
@@ -126,9 +126,11 @@ app.get('/shoes', function(req, res) {
 });
 });
 
-
+console.log('.....');
 app.listen(8080);
 console.log('All good to go!');
 console.log(' ');
+console.log(' ');
 console.log('Hit CTRL + C to stop the server.');
+console.log(' ');
 console.log(' ');
