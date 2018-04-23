@@ -56,9 +56,8 @@ var quest = req.query.quest;
 });
 
 app.get('/item', function(req, res){
-var x = req.query.x;
-var y = req.query.y;
- res.send("X + Y=" + parseInt(x+y));
+var sku = req.query.sku;
+res.render('pages/index', { sku: sku });
 });
 
 app.get('/promotions', function(req, res) {
