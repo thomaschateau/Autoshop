@@ -26,7 +26,21 @@
                   <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
                   4.0 stars
                    <small class="text-muted"> Item No: <%= item.sku %></small>
-                  <%- item.img_holder %>
+
+
+
+
+                  <div class="row">
+                  <div class="col-md-4">
+                    <div class="thumbnail">
+                      <a>
+                                          <%- item.img_holder %>
+                      </a>
+                    </div>
+                  </div>
+
+
+
                    <% });%>
                    <a href="/" class="btn btn-success">Buy now</a>
                 </div>

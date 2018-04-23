@@ -75,7 +75,7 @@ var search = [];
                "colour": result[i].colour,
                "quantity": result[i].quantity,
                "price": result[i].price,
-               "img_holder": '<img class="img-rounded" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png">'});
+               "img_holder": '<img class="rounded" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png">'});
   }
 res.render('pages/item', { search: search });
 });
