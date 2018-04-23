@@ -60,7 +60,14 @@ console.log(req.query.sku);
 db.collection('trousers').find({"sku":"TR001"}).toArray(function(err, result) {
 if (err) throw err;
 var search = [];
-
+search.push({"sku": result[i].sku,
+          "brand": result[i].brand,
+          "type": result[i].type,
+          "description": result[i].description,
+           "path": "/" + result[i].sku + ".png",
+           "colour": result[i].colour,
+           "quantity": result[i].quantity,
+           "price": result[i].price});
 res.render('pages/item', { search: search });
 });
 });
