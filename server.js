@@ -104,7 +104,6 @@ app.get('/profile', function(req, res) {
     //if there is a result then check the password, if the password is correct set session loggedin to true and send the user to the index
     res.render('pages/profile', { user: result });
     //otherwise send them back to login
-    else{res.redirect('/login')}
   });
 });
 
