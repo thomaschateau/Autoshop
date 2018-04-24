@@ -23,18 +23,18 @@ app.use (bodyParser ());
 app.set('view engine', 'ejs');
 // render pages
 app.get('/', function(req, res) {
-  db.collection('trousers').find().toArray(function(err, result) {
+  db.collection('promotions').find().toArray(function(err, result) {
   if (err) throw err;
-  var trousers = [];
+  var promotions = [];
   for (var i = 0; i < result.length; i++) {
-    trousers.push({"sku": result[i].sku,
+    promotions.push({"sku": result[i].sku,
      "brand": result[i].brand,
       "type": result[i].type,
       "description": result[i].description,
-     "img_holder": '<a href="/itm_trousers?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
+     "img_holder": '<a href="/itm_promo?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
     //console.log(path);
   }
-  res.render('pages/index', { trousers: trousers});
+  res.render('pages/index', { promotions: promotions});
 });
 });
 
