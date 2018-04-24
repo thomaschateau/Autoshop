@@ -32,9 +32,8 @@ app.get('/', function(req, res) {
       "type": result[i].type,
       "description": result[i].description,
       "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '&col=promotions" role="button">Buy Now</a></p>',
-     "img_holder": '  <a class="thumbnail pull-left" href="#"> <img class="media-object" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png" style="width: auto; height: 72px;"></a>'});
+     "img_holder": '<a href="/itm_promo?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
     //console.log(path);
-
   }
   res.render('pages/index', { promotions: promotions});
 });
@@ -214,7 +213,7 @@ app.get('/basket', function(req, res) {
                  "colour": result[i].colour,
                  "quantity": result[i].quantity,
                  "price": result[i].price,
-                 "img_holder": '<img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png">'});
+                 "img_holder": '<a class="thumbnail pull-left" href="#"> <img class="media-object" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png" style="width: auto; height: 72px;"></a>'});
     }
   res.render('pages/basket', { search: search });
   });
