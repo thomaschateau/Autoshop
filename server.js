@@ -229,8 +229,10 @@ app.get('/basket', function(req, res) {
       }
       if(search == null){
             res.render('pages/index', { search: search });
+      } else {
+                     res.render('pages/login', { search: search });
       }
-             res.render('pages/login', { search: search });
+
 
     });
     });
