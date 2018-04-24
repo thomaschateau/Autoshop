@@ -130,7 +130,7 @@ var datatostore = {
 //once created we just run the data string against the database and all our new data will be saved/
   db.collection('people').save(datatostore, function(err, result) {
     if (err) throw err;
-    console.log('saved to database')
+    console.log('saved' + datatostore)
     //when complete redirect to the index
     res.redirect('/login')
   })
