@@ -37,17 +37,32 @@ MongoClient.connect(url, function(err, database) {
 
 
 //********** GET ROUTES - Deal with displaying pages ***************************
-
-//this is our root route
 app.get('/', function(req, res) {
+  db.collection('promotions').find().toArray(function(err, result) {
+  if (err) throw err;
+  var promotions = [];
+  for (var i = 0; i < result.length; i++) {
+    promotions.push({"sku": result[i].sku,
+     "brand": result[i].brand,
+      "type": result[i].type,
+      "description": result[i].description,
+      "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '&col=promotions" role="button">Buy Now</a></p>',
+     "img_holder": '<a href="/itm_promo?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
+    //console.log(path);
+  }
+  res.render('pages/index', { promotions: promotions});
+});
+});
+//this is our root route
+app.get('/root', function(req, res) {
   //if the user is not logged in redirect them to the login page
-  if(!req.session.loggedin){res.redirect('/index');return;}
+  if(!req.session.loggedin){res.redirect('/');return;}
 
   //otherwise perfrom a search to return all the documents in the people collection
   db.collection('people').find().toArray(function(err, result) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
-    res.redirect('pages/profile')
+    res.redirect('/profile')
   });
 
 });
@@ -112,7 +127,7 @@ app.post('/dologin', function(req, res) {
     //if there is no result, redirect the user back to the login system as that username must not exist
     if(!result){res.redirect('/login');return}
     //if there is a result then check the password, if the password is correct set session loggedin to true and send the user to the index
-    if(result.login.password == pword){ req.session.loggedin = true; res.redirect('/') }
+    if(result.login.password == pword){ req.session.loggedin = true; res.redirect('/root') }
     //otherwise send them back to login
     else{res.redirect('/login')}
   });
