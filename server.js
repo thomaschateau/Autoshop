@@ -181,7 +181,7 @@ app.get('/shoes', function(req, res) {
       "img_holder": '<a href="/itm_shoes?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
     //console.log(path);
   }
-  res.render('pages/shoes', { tshirts: tshirts });
+  res.render('pages/shoes', { shoes: shoes });
 });
 });
 app.get('/itm_shoes', function(req, res){
