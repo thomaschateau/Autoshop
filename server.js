@@ -6,6 +6,8 @@
  * @Last modified time: 27-Mar-182018
  */
 
+
+
 const MongoClient = require('mongodb').MongoClient; //npm install mongodb@2.2.32
 const url = "mongodb://localhost:27017/autoshopdb";
 const express = require('express'); //npm install express
@@ -39,34 +41,19 @@ MongoClient.connect(url, function(err, database) {
 //this is our root route
 app.get('/', function(req, res) {
   //if the user is not logged in redirect them to the login page
-  if(!req.session.loggedin){res.redirect('/home');return;}
+  if(!req.session.loggedin){res.redirect('/login');return;}
 
   //otherwise perfrom a search to return all the documents in the people collection
   db.collection('people').find().toArray(function(err, result) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
-    res.render('pages/profile', {
+    res.render('pages/users', {
       users: result
     })
   });
 
 });
-app.get('/home', function(req, res) {
-  db.collection('promotions').find().toArray(function(err, result) {
-  if (err) throw err;
-  var promotions = [];
-  for (var i = 0; i < result.length; i++) {
-    promotions.push({"sku": result[i].sku,
-     "brand": result[i].brand,
-      "type": result[i].type,
-      "description": result[i].description,
-      "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '&col=promotions" role="button">Buy Now</a></p>',
-     "img_holder": '<a href="/itm_promo?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
-    //console.log(path);
-  }
-  res.render('pages/index', { promotions: promotions});
-});
-});
+
 //this is our login route, all it does is render the login.ejs page.
 app.get('/login', function(req, res) {
   res.render('pages/login');
