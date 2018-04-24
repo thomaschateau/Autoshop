@@ -6,28 +6,22 @@
   <header>
    <% include ../partials/header %>
   </header>
-  <body style="background-color: #ffffff;">>
+  <body style="background-color: #ffffff;">
 
 
             <% include ../partials/categories %>
             <!-- /.col-lg-3 -->
 
 
-            <div class="col-lg-9">
-              <div class="card mt-4">
-                <img class="card-img-top img-fluid" src="/promo1.png" alt="">
-                <div class="card-body">
-                  <% search.forEach(function(item) { %>
-                    <div class="row">
-                    <div class="col-md-4">
-                      <div class="thumbnail">
-                        <a>
-                                            <%- item.img_holder %>
-                        </a>
-                      </div>
-                    </div>
-                    <br>
 
+                <img class="card-img-top img-fluid" src="/promo1.png" alt="">
+
+                  <% search.forEach(function(item) { %>
+                    <div class="col-lg-9">
+                      <div class="card mt-4">
+                        <div class="card-body">
+                    <%- item.img_holder %>
+                    <br>
                   <h3 class="card-title"><%= item.brand %></h3>
                   <h4>£<%= item.price %></h4>
                   <p class="card-text"><%= item.description %></p>
