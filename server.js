@@ -28,7 +28,7 @@ MongoClient.connect(url, function(err, database) {
 
 
 //********** GET ROUTES - Deal with displaying pages ***************************
-app.get('/', function(req, res) {
+app.get('/index', function(req, res) {
   db.collection('promotions').find().toArray(function(err, result) {
   if (err) throw err;
   var promotions = [];
@@ -47,7 +47,7 @@ app.get('/', function(req, res) {
 //this is our root route
 app.get('/root', function(req, res) {
   //if the user is not logged in redirect them to the login page
-  if(!req.session.loggedin){res.redirect('/');return;}
+  if(!req.session.loggedin){res.redirect('/index');return;}
 
   //otherwise perfrom a search to return all the documents in the people collection
   db.collection('people').find().toArray(function(err, result) {
@@ -86,11 +86,6 @@ app.get('/profile', function(req, res) {
 app.get('/adduser', function(req, res) {
   if(!req.session.loggedin){res.redirect('/login');return;}
   res.render('pages/adduser')
-});
-//remuser route simply draws our remuser page
-app.get('/remuser', function(req, res) {
-  if(!req.session.loggedin){res.redirect('/login');return;}
-  res.render('pages/remuser')
 });
 //logour route cause the page to Logout.
 //it sets our session.loggedin to false and then redirects the user to the login
