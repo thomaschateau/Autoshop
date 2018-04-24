@@ -59,7 +59,7 @@ app.get('/logout', function(req, res) {
   if(!req.session.loggedin){res.redirect('/login');return;}
   req.session.loggedin = false;
   req.session.destroy();
-  res.redirect('/');
+  res.redirect('/login');
 });
 
 //********** POST ROUTES - Deal with processing data from forms ***************************
