@@ -144,7 +144,7 @@ app.get('/trouser_feeder', function(req, res) {
       "img_holder": '<a href="/itm_trousers?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
     //console.log(path);
   }
-  res.send('partials/trouser_feeder', { trousers: trousers });
+  res.render('partials/trouser_feeder', { trousers: trousers });
 });
 });
 
