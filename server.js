@@ -172,7 +172,7 @@ res.render('pages/itm_tshirt', { search: search });
 app.get('/shoes', function(req, res) {
   db.collection('shoes').find().toArray(function(err, result) {
   if (err) throw err;
-  var tshirts = [];
+  var shoes = [];
   for (var i = 0; i < result.length; i++) {
     shoes.push({"sku": result[i].sku,
      "brand": result[i].brand,
