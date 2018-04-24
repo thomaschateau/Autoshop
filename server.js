@@ -219,6 +219,19 @@ app.get('/basket', function(req, res) {
   });
   });
 
+  app.get('/login', function(req, res) {
+    db.collection('users').find({login: req.query.login, password: req.query.password}).toArray(function(err, result) {
+    if (err) throw err;
+    var search = [];
+      for (var i = 0; i < result.length; i++) {
+        search.push({"login": result[i].login,
+                  "password": result[i].password});
+      }
+    res.render('pages/login', { search: search });
+    });
+    });
+
+
 
 
 app.get('/about', function(req, res) {
@@ -227,9 +240,7 @@ app.get('/about', function(req, res) {
 app.get('/contact', function(req, res) {
  res.render('pages/contact');
 });
-app.get('/login', function(req, res) {
- res.render('pages/login');
-});
+
 app.get('/register', function(req, res) {
  res.render('pages/register');
 });
