@@ -228,8 +228,9 @@ app.get('/basket', function(req, res) {
                   "password": result[i].pas});
       }
       if(search == null){
-            res.render('pages/login', { search: search });
+            res.render('pages/index', { search: search });
       }
+             res.render('pages/login', { search: search });
 
     });
     });
