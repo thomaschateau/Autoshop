@@ -85,12 +85,13 @@ app.post('/dologin', function(req, res) {
     if(result.login.password == pword){
        req.session.loggedin = true;
        req.session.username = uname;
-       res.redirect('/profile');
+       res.render('pages/profile', { user: result });
      }
     //otherwise send them back to login
     else{res.redirect('/login')}
   });
 });
+
 app.get('/profile', function(req, res) {
   if(!req.session.loggedin){res.redirect('/login');return;}
   res.render('pages/profile', { user: req.session.username });
