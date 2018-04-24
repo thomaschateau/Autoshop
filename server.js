@@ -32,6 +32,7 @@ app.get('/index', function(req, res) {
   db.collection('promotions').find().toArray(function(err, result) {
   if (err) throw err;
   var promotions = [];
+             console.log(req.session.username);
   for (var i = 0; i < result.length; i++) {
     promotions.push({"sku": result[i].sku,
      "brand": result[i].brand,
