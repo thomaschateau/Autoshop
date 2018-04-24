@@ -85,6 +85,7 @@ app.post('/profile', function(req, res) {
        req.session.loggedin = true;
        req.session.username = uname;
        res.render('pages/profile', { user: result });
+           console.log(req.session.username);
      }
     //otherwise send them back to login
     else{res.redirect('/login')}
