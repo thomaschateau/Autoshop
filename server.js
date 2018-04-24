@@ -17,7 +17,6 @@ const app = express();
 
 //this tells express we are using sesssions. These are variables that only belong to one user of the site at a time.
 app.use(session({ secret: 'example' }));
-var bodyParser = require ('body-parser');
 app.use (bodyParser ());
 // set the view engine to ejs
 app.set('view engine', 'ejs');
