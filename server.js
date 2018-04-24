@@ -23,15 +23,6 @@ app.set('view engine', 'ejs');
 var db;
 
 
-//this is our connection to the mongo db, ts sets the variable db as our database
-MongoClient.connect(url, function(err, database) {
-  if (err) throw err;
-  db = database;
-  app.listen(8080);
-  console.log('listening on 8080');
-});
-
-
 //********** GET ROUTES - Deal with displaying pages ***************************
 app.get('/', function(req, res) {
   db.collection('promotions').find().toArray(function(err, result) {
