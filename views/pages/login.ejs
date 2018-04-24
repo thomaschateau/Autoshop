@@ -1,36 +1,51 @@
 <!DOCTYPE html>
-<html>
-
-<header>
-  <% include ../partials/head %>
-</header>
-
-
-<body class="container">
-    <header>
-      <% include ../partials/header %>
-    </header>
-
-  <main>
-    <div class="jumbotron">
-
-      <h2>Login</h2>
-      <!-- simple login form, submits to our /dologin route -->
-      <form action="/dologin" method="POST">
-        <input type="text" placeholder="username" name="username">
-        <input type="password" placeholder="password" name="password">
-        <button type="submit">Submit</button>
-      </form>
-
-
-    </div>
-  </main>
-
-
-  <footer>
-    <% include ../partials/footer %>
-  </footer>
-
-</body>
-
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <header>
+   <% include ../partials/header %>
+  </header>
+   <body style="background-color: #e9ebee;">
+     <div class="container">
+       <div class="row justify-content-md-center">
+         <section class="py-5">
+            <form class="form-signin" action="/dologin" method="POST">
+               <h2 class="form-signin-heading">Welcome back.</h2>
+               <br>
+               <input type="text" class="form-control" name="username" placeholder="Login"name="email" required="" autofocus="" />
+               <br>
+               <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+               <br>
+               <br>
+               <button class="btn btn-lg btn-block text-white" type="submit" style="background-color: #4267b2;">Login</button>
+               <br>
+               <a href="/register" class="m-0 text-center">Not a member? Register here.</p>
+            </form>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+         </section>
+       </div>
+     </div>
+   </div>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   </body>
+           <% include ../partials/footer %>
 </html>

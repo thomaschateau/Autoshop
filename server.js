@@ -6,8 +6,6 @@
  * @Last modified time: 27-Mar-182018
  */
 
-
-
 const MongoClient = require('mongodb').MongoClient; //npm install mongodb@2.2.32
 const url = "mongodb://localhost:27017/autoshopdb";
 const express = require('express'); //npm install express
