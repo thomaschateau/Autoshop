@@ -38,12 +38,9 @@
                             <input type="email" class="form-control" id="exampleInputEmail1" value="3">
                          </td>
                          <td class="col-sm-1 col-md-1 text-center"><strong>£<%= item.price %></strong></td>
-                         <td class="col-sm-1 col-md-1">
-                            <button type="button" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span> Remove </button>
-                         </td>
+
                       </tr>
-                                <% });%>
+
                       <tr>
                          <td>   </td>
                          <td>   </td>
@@ -52,7 +49,7 @@
                             <h5>Subtotal</h5>
                          </td>
                          <td class="text-right">
-                            <h5><strong>£24.59</strong></h5>
+                            <h5><strong>£<%= item.price %></strong></h5>
                          </td>
                       </tr>
                       <tr>
@@ -63,7 +60,7 @@
                             <h5>Estimated shipping</h5>
                          </td>
                          <td class="text-right">
-                            <h5><strong>£6.94</strong></h5>
+                            <h5><strong>FREE</strong></h5>
                          </td>
                       </tr>
                       <tr>
@@ -74,7 +71,7 @@
                             <h3>Total</h3>
                          </td>
                          <td class="text-right">
-                            <h3><strong>£31.53</strong></h3>
+                            <h3><strong>£<%= item.price %></strong></h3>
                          </td>
                       </tr>
                       <tr>
@@ -82,7 +79,7 @@
                          <td>   </td>
                          <td>   </td>
                          <td>
-                            <a href="index.html" class="btn btn-default">Continue Shopping</a>
+                            <a href="/" class="btn btn-default">Continue Shopping</a>
                          </td>
                          <td>
                             <button type="button" class="btn btn-success">
@@ -96,6 +93,7 @@
           </div>
        </div>
     </section>
+                                    <% });%>
 
 
     <!--spacers-->
