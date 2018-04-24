@@ -93,8 +93,19 @@ app.post('/dologin', function(req, res) {
 });
 
 app.get('/profile', function(req, res) {
-  if(!req.session.loggedin){res.redirect('/login');return;}
-  res.render('pages/profile', { user: req.session.username });
+    var uname = req.session.username;
+  db.collection('people').findOne({"login.username":uname}, function(err, result) {
+    if (err) throw err;//if there is an error, throw the error
+    //if there is no result, redirect the user back to the login system as that username must not exist
+    if(!result){
+      res.redirect('/login');
+      return;
+    }
+    //if there is a result then check the password, if the password is correct set session loggedin to true and send the user to the index
+    res.render('pages/profile', { user: result });
+    //otherwise send them back to login
+    else{res.redirect('/login')}
+  });
 });
 
 //the adduser route deals with adding a new user
