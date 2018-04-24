@@ -11,63 +11,9 @@
   </header>
 <body class="container">
 
-  <h2 style="text-align:center">Hello!</h2>
-
-  <div class="card">
-    <img src="/user_image.png" alt="John" style="width:100%">
-    <h1>John Doe</h1>
-    <p class="title">CEO & Founder, Example</p>
-    <p>Harvard University</p>
-    <div style="margin: 24px 0;">
-      <a href="#"><i class="fa fa-dribbble"></i></a>
-      <a href="#"><i class="fa fa-twitter"></i></a>
-      <a href="#"><i class="fa fa-linkedin"></i></a>
-      <a href="#"><i class="fa fa-facebook"></i></a>
-   </div>
-   <p><button>Contact</button></p>
-  </div>
-
-
-
-
-    <div class="row">
-      <div class="col-sm-8">
-        <div class="jumbotron">
-          <!-- Page to display a single profile. The "user" object is passed through from express -->
-          <!-- get the first name -->
-          <h1>Hi <%= user.name.first %></h1>
-          <!-- get the medium picture -->
-          <img src="/user_image.png" class="img-circle" />
-          <!-- get the username -->
-          <h2>username: <%= user.login.username %></h2>
-          <p>
-            <!-- get the gender-->
-            gender: <%= user.gender %>
-          </p>
-          <p>
-            <!-- get the dob -->
-            date of birth: <%= user.dob %>
-          </p>
-          <p>
-            <!-- get the registration date-->
-            date of registration: <%= user.registered %>
-          </p>
-        </div>
-      </div>
-      </div>
-    </div>
-
-
-
-
-
-    <div class="container">
             <div class="row">
                     <div class="col-md-12 text-center">
-                        <h2>Bootstrap User Profile Template</h2>
-
-
-                    Crafted by <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a>
+                        <h2>Welcome back, <%= user.name.first %></h2>
                         <br>
                         <br>
 
@@ -78,12 +24,12 @@
                     <div class="col-md-3 col-sm-3">
 
                         <div class="user-wrapper">
-                            <img src="assets/img/1.jpg" class="img-responsive">
+                            <img src="/user_image.png" class="img-responsive">
                         <div class="description">
-                           <h4> Ramolin Leomarid</h4>
-                            <h5> <strong> Website Designer </strong></h5>
+                           <h4> <%= user.name.first %> <%= user.name.last %></h4>
+                            <h5> <strong> <%= user.login.username %> </strong></h5>
                             <p>
-                                Pellentesque elementum dapibus convallis.
+                                Date of birth: <%= user.dob %>
                             </p>
                             <hr>
                             <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-user-plus"></i> &nbsp;Profile + </a>
@@ -93,7 +39,7 @@
 
                     <div class="col-md-9 col-sm-9  user-wrapper">
                         <div class="description">
-                             <h3> Ramolin's Biography : </h3>
+                             <h3> <%= user.name.first %>'s Biography : </h3>
                         <hr>
                          <p>
                               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -126,9 +72,6 @@
                 </div>
                <!-- USER PROFILE ROW END-->
         </div>
-
-
-
 
 
 </body>
