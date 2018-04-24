@@ -15,10 +15,7 @@ app.use(session({ secret: 'example' }));
 app.use (bodyParser ());
 // set the view engine to ejs
 app.set('view engine', 'ejs');
-
 var db;
-
-
 //this is our connection to the mongo db, ts sets the variable db as our database
 MongoClient.connect(url, function(err, database) {
   if (err) throw err;
