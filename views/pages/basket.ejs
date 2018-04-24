@@ -27,14 +27,14 @@
                             <div class="media">
                               <%- item.img_holder %>
                                <div class="media-body">
-                                  <h4 class="media-heading"><a href="#"><%= item.type %></a></h4>
-                                  <h5 class="media-heading"> by <a href="#"><%= item.brand %></a></h5>
-                                  <span>Colour: </span><span class="text-success"><strong><%= item.colour %></strong></span>
+                                  <h4 class="media-heading">Brand: <%= item.brand %></h4>
+                                  <h5 class="media-heading">Type: <%= item.type %></h5>
+                                  <span>Colour: <%= item.colour %></span>
                                </div>
                             </div>
                          </td>
                          <td class="col-sm-1 col-md-1" style="text-align: center">
-                            <h4 class="media-heading"><a href="#">Quantity: 1</a></h4>
+                            <h4 class="media-heading">Quantity: 1</h4>
                          </td>
                          <td class="col-sm-1 col-md-1 text-center"><strong>£<%= item.price %></strong></td>
                       </tr>
