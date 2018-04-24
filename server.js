@@ -23,37 +23,24 @@ app.use (bodyParser ());
 app.set('view engine', 'ejs');
 // render pages
 app.get('/', function(req, res) {
-  db.collection('promotions').find().toArray(function(err, result) {
+  db.collection('trousers').find().toArray(function(err, result) {
   if (err) throw err;
-  var promotions = [];
+  var trousers = [];
   for (var i = 0; i < result.length; i++) {
-    promotions.push({"brand": result[i].brand,
-     "type": result[i].type,
-      "description": result[i].description});
+    trousers.push({"sku": result[i].sku,
+     "brand": result[i].brand,
+      "type": result[i].type,
+      "description": result[i].description,
+     "img_holder": '<a href="/itm_trousers?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
+    //console.log(path);
   }
-  res.render('pages/index', { promotions: promotions });
+  res.render('pages/index', { trousers: trousers});
 });
 });
 
 
 console.log('..');
 
-
-app.get('/about', function(req, res) {
- res.render('pages/about');
-});
-app.get('/contact', function(req, res) {
- res.render('pages/contact');
-});
-app.get('/login', function(req, res) {
- res.render('pages/login');
-});
-app.get('/register', function(req, res) {
- res.render('pages/register');
-});
-app.get('/basket', function(req, res) {
- res.render('pages/basket');
-});
 console.log('...');
 app.get('/getform', function(req, res){
 var name = req.query.name;
@@ -132,22 +119,6 @@ res.render('pages/itm_promo', { search: search });
 });
 
 
-app.get('/trouser_feeder', function(req, res) {
-  db.collection('trousers').find().toArray(function(err, result) {
-  if (err) throw err;
-  var trousers = [];
-  for (var i = 0; i < result.length; i++) {
-    trousers.push({"sku": result[i].sku,
-     "brand": result[i].brand,
-      "type": result[i].type,
-       "description": result[i].description,
-      "img_holder": '<a href="/itm_trousers?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
-    //console.log(path);
-  }
-  res.render('partials/trouser_feeder', { trousers: trousers });
-});
-});
-
 console.log('....');
 
 
@@ -221,6 +192,23 @@ res.render('pages/itm_shoes', { search: search });
 });
 });
 
+
+
+app.get('/about', function(req, res) {
+ res.render('pages/about');
+});
+app.get('/contact', function(req, res) {
+ res.render('pages/contact');
+});
+app.get('/login', function(req, res) {
+ res.render('pages/login');
+});
+app.get('/register', function(req, res) {
+ res.render('pages/register');
+});
+app.get('/basket', function(req, res) {
+ res.render('pages/basket');
+});
 console.log('.....');
 app.listen(8080);
 console.log('All good to go!');
