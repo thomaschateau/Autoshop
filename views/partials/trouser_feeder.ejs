@@ -2,68 +2,27 @@
 <h4 class="my-4">Trousers</h4>
 
 <div class="row">
-   <div class="col-xs-6 col-sm-3">
-      <div class="card h-100">
-         <a href="/item?sku=TR001"><img class="card-img-top" src="../tr1.png" alt=""></a>
-         <div class="card-body">
-            <h4 class="card-title">
-               <a href="/item?sku=TR001">Wrangler</a>
-            </h4>
-            <h5>Skinny</h5>
-            <p class="card-text">Classic Wrangler trousers. 10% off all denim products. Limited offer, at Autoshop only!</p>
-         </div>
-         <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-         </div>
-      </div>
-   </div>
 
-   <div class="col-xs-6 col-sm-3">
-      <div class="card h-100">
-         <a href="/item?sku=TR002"><img class="card-img-top" src="../tr2.png" alt=""></a>
-         <div class="card-body">
-            <h4 class="card-title">
-               <a href="/item?sku=TR002">Levi</a>
-            </h4>
-            <h5>Stretch</h5>
-            <p class="card-text">Levi's trousers at limited availability. Only now, 10% off all denim products. Limited offer at Autoshop only!</p>
-         </div>
-         <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-            <small class="text-white" style="background-color: #ff5152;">Only 3 left!</small>
-         </div>
-      </div>
-   </div>
+  <% trousers.forEach(function(item) { %>
+    <div class="col-lg-4 col-md-6 mb-4">
+       <div class="card h-100">
+       <%- item.img_holder %>
+          <div class="card-body">
+             <h4 class="card-title">
+                <a href="/item?x=5&x=22"><%= item.brand %></a>
+             </h4>
+             <h5><%= item.type %></h5>
+             <p class="card-text"><%= item.description %></p>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-primary">Add to basket</button>
+            <p class="text-muted">Item: <%= item.sku %></p>
+             <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+          </div>
+       </div>
+    </div>
+    <% });%>
 
-   <div class="col-xs-6 col-sm-3">
-      <div class="card h-100">
-         <a href="/item?sku=TR003"><img class="card-img-top" src="../tr3.png" alt=""></a>
-         <div class="card-body">
-            <h4 class="card-title">
-               <a href="/item?sku=TR003">Lee</a>
-            </h4>
-            <h5>Casual</h5>
-            <p class="card-text">Classic Lee jeans. 10% off all denim products. Limited offer at Autoshop only!</p>
-         </div>
-         <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9733;</small>
-         </div>
-      </div>
-   </div>
 
-   <div class="col-xs-6 col-sm-3">
-      <div class="card h-100">
-         <a href="#"><img class="card-img-top" src="../tr4.png" alt=""></a>
-         <div class="card-body">
-            <h4 class="card-title">
-               <a href="#">Primark</a>
-            </h4>
-            <h5>Skinny</h5>
-            <p class="card-text">Multibuy offer 2 for 3. 10% off all denim products. Only at Autoshop.</p>
-         </div>
-         <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9733;</small>
-         </div>
-      </div>
-   </div>
+
       </div>

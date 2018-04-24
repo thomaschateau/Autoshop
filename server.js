@@ -131,6 +131,23 @@ res.render('pages/itm_promo', { search: search });
 });
 });
 
+
+app.get('/trouser_feeder', function(req, res) {
+  db.collection('trousers').find().toArray(function(err, result) {
+  if (err) throw err;
+  var trousers = [];
+  for (var i = 0; i < result.length; i++) {
+    trousers.push({"sku": result[i].sku,
+     "brand": result[i].brand,
+      "type": result[i].type,
+       "description": result[i].description,
+      "img_holder": '<a href="/itm_trousers?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
+    //console.log(path);
+  }
+  res.render('partials/trouser_feeder', { trousers: trousers });
+});
+});
+
 console.log('....');
 
 
