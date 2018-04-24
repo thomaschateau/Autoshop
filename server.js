@@ -3,24 +3,28 @@ console.log('Node server by Autograph.');
 console.log('Initialising...');
 // server.js
 // load the things we need
-const MongoClient = require('mongodb').MongoClient;
-
+const MongoClient = require('mongodb').MongoClient; //npm install mongodb@2.2.32
 const url = "mongodb://localhost:27017/autoshopdb";
-var express = require('express');
-var app = express();
-app.use(express.static('public'))
-var db;
-MongoClient.connect(url, function(err, database){
- if(err) throw err;
- db = database;
-});
-console.log('.');
-var bodyParser = require ('body-parser');
+const express = require('express'); //npm install express
+const session = require('express-session'); //npm install express-session
+const bodyParser = require('body-parser'); //npm install body-parser
+const app = express();
+ app.use(express.static('public'))
+//this tells express we are using sesssions. These are variables that only belong to one user of the site at a time.
+app.use(session({ secret: 'example' }));
 app.use (bodyParser ());
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
 var db;
+
+
+//this is our connection to the mongo db, ts sets the variable db as our database
+MongoClient.connect(url, function(err, database) {
+  if (err) throw err;
+  db = database;
+  app.listen(8080);
+});
 
 
 //********** GET ROUTES - Deal with displaying pages ***************************
@@ -174,26 +178,3 @@ var datatostore = {
     res.redirect('/')
   })
 });
-
-
-app.get('/about', function(req, res) {
- res.render('pages/about');
-});
-app.get('/contact', function(req, res) {
- res.render('pages/contact');
-});
-
-app.get('/register', function(req, res) {
- res.render('pages/register');
-});
-app.get('/basket_empty', function(req, res) {
- res.render('pages/basket_empty');
-});
-console.log('.....');
-app.listen(8080);
-console.log('All good to go!');
-console.log(' ');
-console.log(' ');
-console.log('Hit CTRL + C to stop the server.');
-console.log(' ');
-console.log(' ');
