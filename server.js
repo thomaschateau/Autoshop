@@ -45,7 +45,7 @@ app.get('/index', function(req, res) {
 });
 });
 //this is our root route
-app.get('/root', function(req, res) {
+app.get('/', function(req, res) {
   //if the user is not logged in redirect them to the login page
   if(!req.session.loggedin){res.redirect('/index');return;}
 
