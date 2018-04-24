@@ -220,14 +220,17 @@ app.get('/basket', function(req, res) {
   });
 
   app.get('/login', function(req, res) {
-    db.collection('users').find({login: req.query.login, password: req.query.password}).toArray(function(err, result) {
+    db.collection('users').find({login: req.query.log, password: req.query.pas}).toArray(function(err, result) {
     if (err) throw err;
     var search = [];
       for (var i = 0; i < result.length; i++) {
-        search.push({"login": result[i].login,
-                  "password": result[i].password});
+        search.push({"login": result[i].log,
+                  "password": result[i].pas});
       }
-    res.render('pages/login', { search: search });
+      if(search == null){
+            res.render('pages/login', { search: search });
+      }
+
     });
     });
 
