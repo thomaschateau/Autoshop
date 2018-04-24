@@ -31,6 +31,7 @@ app.get('/', function(req, res) {
      "brand": result[i].brand,
       "type": result[i].type,
       "description": result[i].description,
+      "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '" role="button">Explore</a></p>',
      "img_holder": '<a href="/itm_promo?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
     //console.log(path);
   }
@@ -57,6 +58,7 @@ app.get('/trousers', function(req, res) {
      "brand": result[i].brand,
       "type": result[i].type,
       "description": result[i].description,
+     "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '" role="button">Explore</a></p>',
      "img_holder": '<a href="/itm_trousers?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
     //console.log(path);
   }
@@ -77,6 +79,7 @@ var search = [];
                "colour": result[i].colour,
                "quantity": result[i].quantity,
                "price": result[i].price,
+               "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '" role="button">Explore</a></p>',
                "img_holder": '<img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png">'});
   }
 res.render('pages/itm_trousers', { search: search });
@@ -92,6 +95,7 @@ app.get('/promotions', function(req, res) {
      "brand": result[i].brand,
       "type": result[i].type,
        "description": result[i].description,
+       "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '" role="button">Explore</a></p>',
       "img_holder": '<a href="/itm_promo?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
     //console.log(path);
   }
@@ -112,6 +116,7 @@ var search = [];
                "colour": result[i].colour,
                "quantity": result[i].quantity,
                "price": result[i].price,
+               "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '" role="button">Explore</a></p>',
                "img_holder": '<img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png">'});
   }
 res.render('pages/itm_promo', { search: search });
@@ -131,6 +136,7 @@ app.get('/tshirts', function(req, res) {
      "brand": result[i].brand,
       "type": result[i].type,
        "description": result[i].description,
+       "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '" role="button">Explore</a></p>',
       "img_holder": '<a href="/itm_tshirt?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
     //console.log(path);
   }
@@ -151,6 +157,7 @@ var search = [];
                "colour": result[i].colour,
                "quantity": result[i].quantity,
                "price": result[i].price,
+               "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '" role="button">Explore</a></p>',
                "img_holder": '<img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png">'});
   }
 res.render('pages/itm_tshirt', { search: search });
@@ -166,6 +173,7 @@ app.get('/shoes', function(req, res) {
      "brand": result[i].brand,
       "type": result[i].type,
        "description": result[i].description,
+       "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '" role="button">Explore</a></p>',
       "img_holder": '<a href="/itm_shoes?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
     //console.log(path);
   }
@@ -186,6 +194,7 @@ var search = [];
                "colour": result[i].colour,
                "quantity": result[i].quantity,
                "price": result[i].price,
+               "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '" role="button">Explore</a></p>',
                "img_holder": '<img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png">'});
   }
 res.render('pages/itm_shoes', { search: search });
