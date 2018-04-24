@@ -194,14 +194,14 @@ var search = [];
                "colour": result[i].colour,
                "quantity": result[i].quantity,
                "price": result[i].price,
-               "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '" role="button">Buy Now</a></p>',
+               "btn_holder": '<p><a class="btn btn-primary" href="/basket?sku=' + result[i].sku + '&col=shoes" role="button">Buy Now</a></p>',
                "img_holder": '<img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png">'});
   }
 res.render('pages/itm_shoes', { search: search });
 });
 });
 app.get('/basket', function(req, res) {
-  db.collection().find({sku: req.query.sku}).toArray(function(err, result) {
+  db.collection(req.query.col).find({sku: req.query.sku}).toArray(function(err, result) {
   if (err) throw err;
   var search = [];
     for (var i = 0; i < result.length; i++) {
