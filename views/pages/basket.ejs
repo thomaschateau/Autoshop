@@ -7,7 +7,6 @@
    <% include ../partials/header %>
   </header>
   <body style="background-color: #ffffff;">
-
     <!-- Page Content -->
     <section class="py-5">
        <div class="container">
@@ -30,17 +29,15 @@
                                <div class="media-body">
                                   <h4 class="media-heading"><a href="#"><%= item.type %></a></h4>
                                   <h5 class="media-heading"> by <a href="#"><%= item.brand %></a></h5>
-                                  <span>Quantity: </span><span class="text-success"><strong><%= item.quantity %></strong></span>
+                                  <span>Colour: </span><span class="text-success"><strong><%= item.colour %></strong></span>
                                </div>
                             </div>
                          </td>
                          <td class="col-sm-1 col-md-1" style="text-align: center">
-                            <input type="email" class="form-control" id="exampleInputEmail1" value="3">
+                            <h4 class="media-heading"><a href="#">Quantity: 1</a></h4>
                          </td>
                          <td class="col-sm-1 col-md-1 text-center"><strong>£<%= item.price %></strong></td>
-
                       </tr>
-
                       <tr>
                          <td>   </td>
                          <td>   </td>
@@ -94,8 +91,6 @@
        </div>
     </section>
                                     <% });%>
-
-
     <!--spacers-->
     <p class="py-5">
     </p>
