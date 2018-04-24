@@ -61,7 +61,7 @@ var quest = req.query.quest;
  res.send("Hi "+name+" I am sure you will "+quest) ;
 });
 
-var module_trousers = require('/module_trousers');
+var module_trousers = require('../module_trousers.js');
 
 app.get('/promotions', function(req, res) {
   db.collection('promotions').find().toArray(function(err, result) {
