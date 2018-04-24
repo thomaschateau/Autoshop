@@ -61,7 +61,40 @@ var quest = req.query.quest;
  res.send("Hi "+name+" I am sure you will "+quest) ;
 });
 
-var module_trousers = require('/module_trousers');
+app.get('/trousers', function(req, res) {
+  db.collection('trousers').find().toArray(function(err, result) {
+  if (err) throw err;
+  var trousers = [];
+  for (var i = 0; i < result.length; i++) {
+    trousers.push({"sku": result[i].sku,
+     "brand": result[i].brand,
+      "type": result[i].type,
+      "description": result[i].description,
+     "img_holder": '<a href="/itm_trousers?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
+    //console.log(path);
+  }
+  res.render('pages/trousers', { trousers: trousers});
+});
+});
+app.get('/itm_trousers', function(req, res){
+//console.log(req.query.sku);
+db.collection('trousers').find({sku: req.query.sku}).toArray(function(err, result) {
+if (err) throw err;
+var search = [];
+  for (var i = 0; i < result.length; i++) {
+    search.push({"sku": result[i].sku,
+              "brand": result[i].brand,
+              "type": result[i].type,
+              "description": result[i].description,
+               "path": "/" + result[i].sku + ".png",
+               "colour": result[i].colour,
+               "quantity": result[i].quantity,
+               "price": result[i].price,
+               "img_holder": '<img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png">'});
+  }
+res.render('pages/itm_trousers', { search: search });
+});
+});
 
 app.get('/promotions', function(req, res) {
   db.collection('promotions').find().toArray(function(err, result) {
@@ -106,20 +139,68 @@ app.get('/tshirts', function(req, res) {
   if (err) throw err;
   var tshirts = [];
   for (var i = 0; i < result.length; i++) {
-    tshirts.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
+    tshirts.push({"sku": result[i].sku,
+     "brand": result[i].brand,
+      "type": result[i].type,
+       "description": result[i].description,
+      "img_holder": '<a href="/itm_tshirt?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
+    //console.log(path);
   }
   res.render('pages/tshirts', { tshirts: tshirts });
+});
+});
+app.get('/itm_tshirt', function(req, res){
+//console.log(req.query.sku);
+db.collection('tshirts').find({sku: req.query.sku}).toArray(function(err, result) {
+if (err) throw err;
+var search = [];
+  for (var i = 0; i < result.length; i++) {
+    search.push({"sku": result[i].sku,
+              "brand": result[i].brand,
+              "type": result[i].type,
+              "description": result[i].description,
+               "path": "/" + result[i].sku + ".png",
+               "colour": result[i].colour,
+               "quantity": result[i].quantity,
+               "price": result[i].price,
+               "img_holder": '<img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png">'});
+  }
+res.render('pages/itm_tshirt', { search: search });
 });
 });
 
 app.get('/shoes', function(req, res) {
   db.collection('shoes').find().toArray(function(err, result) {
   if (err) throw err;
-  var shoes = [];
+  var tshirts = [];
   for (var i = 0; i < result.length; i++) {
-    shoes.push({"brand": result[i].brand, "type": result[i].type, "description": result[i].description});
+    shoes.push({"sku": result[i].sku,
+     "brand": result[i].brand,
+      "type": result[i].type,
+       "description": result[i].description,
+      "img_holder": '<a href="/itm_shoes?sku=' + result[i].sku + '"><img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png"></a>'});
+    //console.log(path);
   }
-  res.render('pages/shoes', { shoes: shoes });
+  res.render('pages/shoes', { tshirts: tshirts });
+});
+});
+app.get('/itm_shoes', function(req, res){
+//console.log(req.query.sku);
+db.collection('shoes').find({sku: req.query.sku}).toArray(function(err, result) {
+if (err) throw err;
+var search = [];
+  for (var i = 0; i < result.length; i++) {
+    search.push({"sku": result[i].sku,
+              "brand": result[i].brand,
+              "type": result[i].type,
+              "description": result[i].description,
+               "path": "/" + result[i].sku + ".png",
+               "colour": result[i].colour,
+               "quantity": result[i].quantity,
+               "price": result[i].price,
+               "img_holder": '<img class="card-img-top" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png">'});
+  }
+res.render('pages/itm_shoes', { search: search });
 });
 });
 
