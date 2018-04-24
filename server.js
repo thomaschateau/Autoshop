@@ -68,7 +68,7 @@ app.get('/logout', function(req, res) {
 
 //the dologin route detasl with the data from the login screen.
 //the post variables, username and password ceom from the form on the login page.
-app.post('/profile', function(req, res) {
+app.post('/dologin', function(req, res) {
   console.log(JSON.stringify(req.body));
     console.log(req.session.username);
   var uname = req.body.username;
@@ -85,14 +85,16 @@ app.post('/profile', function(req, res) {
     if(result.login.password == pword){
        req.session.loggedin = true;
        req.session.username = uname;
-       res.render('pages/profile', { user: result });
-           console.log(req.session.username);
+       res.redirect('/profile');
      }
     //otherwise send them back to login
     else{res.redirect('/login')}
   });
 });
-
+app.get('/profile', function(req, res) {
+  if(!req.session.loggedin){res.redirect('/login');return;}
+  res.render('pages/profile', { user: req.session.username });
+});
 
 //the adduser route deals with adding a new user
 //dataformat for storing new users.
