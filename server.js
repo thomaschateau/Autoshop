@@ -122,16 +122,11 @@ app.post('/adduser', function(req, res) {
   //we create the data string from the form components that have been passed in
 
 var datatostore = {
-"gender":req.body.gender,
-"name":{"title":req.body.title,"first":req.body.first,"last":req.body.last},
-"location":{"street":req.body.street,"city":req.body.city,"state":req.body.state,"postcode":req.body.postcode},
+"name":{"first":req.body.first,"last":req.body.last},
+"location":{"street":req.body.street,"city":req.body.city,"postcode":req.body.postcode},
 "email":req.body.email,
 "login":{"username":req.body.username,"password":req.body.password},
-"dob":req.body.dob,"registered":Date(),
-"picture":{"large":req.body.large,"medium":req.body.medium,"thumbnail":req.body.thumbnail},
-"nat":req.body.nat}
-
-
+"dob":req.body.dob,"registered":Date()}
 //once created we just run the data string against the database and all our new data will be saved/
   db.collection('people').save(datatostore, function(err, result) {
     if (err) throw err;
