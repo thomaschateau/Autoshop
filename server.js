@@ -46,7 +46,9 @@ app.get('/api', function(req, res) {
  for (var i = 0; i < tweets.length; i++) {
  json.push({
  "name": tweets[i].user.name,
- "text": tweets[i].text
+ "text": tweets[i].text,
+ "location": tweets[i].user.location,
+  "url": tweets[i].user.url,
  });
  }
          //res.send(JSON.stringify(json));

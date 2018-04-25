@@ -8,20 +8,19 @@
   </header>
   <body style="background-color: #e9ebee;">
 
-   <% include ../partials/categories %>
           <!-- /.col-lg-3 -->
 
           <div class="list-group">
-                         <% json.forEach(function(item) { %>
+            <% json.forEach(function(item) { %>
               <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1"><%= item.name %></h5>
-                  <small class="text-muted">3 days ago</small>
+                  <small class="text-muted"><%= item.location %></small>
                 </div>
                 <p class="mb-1"><%= item.text %></p>
-                <small class="text-muted">Bottom.</small>
+                <small class="text-muted"><%= item.url%></small>
               </a>
-                           <% });%>
+            <% });%>
             </div>
            </div>
   </body>
