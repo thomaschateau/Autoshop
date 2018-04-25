@@ -32,21 +32,28 @@ MongoClient.connect(url, function(err, database) {
   app.listen(8080);
 });
 
-app.get('/api', function(req, res){
-  var params = {screen_name: 'nodejs'};
-  client.get('statuses/user_timeline', params, function(error, tweets, result) {
-      if (error) throw error;
-      var tweet = [];
-      for (var i = 0; i < tweets.statuses.length; i++) {
-           tweet.push({
-           name: tweets.statuses[i].user.name,
-           text: tweets.statuses[i].text
-           });
 
-   }
-         res.render('pages/api', { tweet: tweet});
-  });
+
+
+
+app.get('/api', function(req, res) {
+ var params = {
+ screen_name: 'nodejs'
+ };
+ client.get('statuses/user_timeline', params, function(error, tweets, response) {
+ if (!error) {
+ var json = [];
+ for (var i = 0; i < tweets.statuses.length; i++) {
+ json.push({
+ "name": tweets.statuses[i].user.name,
+ "text": tweets.statuses[i].text
+ });
+ }
+         res.render('pages/api', { json: json});
+ }
+ });
 });
+
 //********** GET ROUTES - Deal with displaying pages ***************************
 app.get('/index', function(req, res) {
   db.collection('promotions').find().toArray(function(err, result) {
