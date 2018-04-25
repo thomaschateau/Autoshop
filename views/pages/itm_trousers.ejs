@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <% include ../partials/head %>
-  </head>
-  <header>
-   <% include ../partials/header %>
-  </header>
-  <body style="background-color: #e9ebee;">
-            <% include ../partials/categories %>
-            <!-- /.col-lg-3 -->
-                  <% search.forEach(function(item) { %>
-                    <div class="col-lg-9">
-                      <div class="card mt-4">
-                        <div class="card-body">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <body style="background-color: #e9ebee;">
+        <% include ../partials/categories %>
+        <!-- /.col-lg-3 -->
+        <% search.forEach(function(item) { %>
+        <div class="col-lg-9">
+            <div class="card mt-4">
+                <div class="card-body">
                     <%- item.img_holder %>
                     <br>
-                  <h3 class="card-title"><%= item.brand %></h3>
-                  <h4>£<%= item.price %></h4>
-                  <p class="card-text"><%= item.description %></p>
-
-                  <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-                  4.0 stars
-                   <small class="text-muted"> Item No: <%= item.sku %></small>
-                   <%- item.btn_holder %>
-                   <% });%>
+                    <h3 class="card-title"><%= item.brand %></h3>
+                    <h4>£<%= item.price %></h4>
+                    <p class="card-text"><%= item.description %></p>
+                    <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                    4.0 stars
+                    <small class="text-muted"> Item No: <%= item.sku %></small>
+                    <%- item.btn_holder %>
+                    <% });%>
                 </div>
-              </div>
-              <!-- /.card -->
-
-              <div class="card card-outline-secondary my-4">
+            </div>
+            <!-- /.card -->
+            <div class="card card-outline-secondary my-4">
                 <div class="card-header">
-                  Product Reviews
+                    Product Reviews
                 </div>
                 <div class="card-body">
-                  <p>Very good quality and express delivery. Thank you!</p>
-                  <small class="text-muted">Posted by John on 1/1/18</small>
-                  <hr>
-                  <p>Much appreciated. Pleased with the services. Cheers!</p>
-                  <small class="text-muted">Posted by Bob on 7/2/18</small>
-                  <hr>
-                  <p>I am very pleased of your customer service guys. More shops like this!</p>
-                  <small class="text-muted">Posted by Anna on 3/7/17</small>
-                  <hr>
+                    <p>Very good quality and express delivery. Thank you!</p>
+                    <small class="text-muted">Posted by John on 1/1/18</small>
+                    <hr>
+                    <p>Much appreciated. Pleased with the services. Cheers!</p>
+                    <small class="text-muted">Posted by Bob on 7/2/18</small>
+                    <hr>
+                    <p>I am very pleased of your customer service guys. More shops like this!</p>
+                    <small class="text-muted">Posted by Anna on 3/7/17</small>
+                    <hr>
                 </div>
-              </div>
-              <!-- /.card -->
-<br>
-<br>
             </div>
-            <!-- /.col-lg-9 -->
-          </div>
+            <!-- /.card -->
+            <br>
+            <br>
         </div>
-  </body>
+        <!-- /.col-lg-9 -->
+        </div>
+        </div>
+    </body>
     <!-- Footer -->
-        <% include ../partials/footer %>
+    <% include ../partials/footer %>
 </html>

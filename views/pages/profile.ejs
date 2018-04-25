@@ -1,36 +1,32 @@
 <!-- views/pages/about.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <% include ../partials/head %>
-</head>
-  <header>
-    <% include ../partials/header %>
-  </header>
-<body style="background-color: #e9ebee;">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <body style="background-color: #e9ebee;">
         <div class="container" style="background-color: #ffffff;">
-          <br>
-          <br>
-          <br>
-          <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h2>Welcome back, <%= user.name.first %></h2>
-                        <br>
-                        <br>
-
-                    </div>
+                <div class="col-md-12 text-center">
+                    <h2>Welcome back, <%= user.name.first %></h2>
+                    <br>
+                    <br>
                 </div>
-             <!-- USER PROFILE ROW STARTS-->
-                <div class="row">
-                    <div class="col-md-3 col-sm-3">
-
-                        <div class="user-wrapper">
-                            <img src="/user_image.png" class="img-responsive" style="width:100%">
+            </div>
+            <!-- USER PROFILE ROW STARTS-->
+            <div class="row">
+                <div class="col-md-3 col-sm-3">
+                    <div class="user-wrapper">
+                        <img src="/user_image.png" class="img-responsive" style="width:100%">
                         <div class="description">
-                           <h4> <%= user.name.first %> <%= user.name.last %></h4>
+                            <h4> <%= user.name.first %> <%= user.name.last %></h4>
                             <h5> <strong> <%= user.login.username %> </strong></h5>
                             <p>
                                 Date of birth: <%= user.dob %>
@@ -38,69 +34,61 @@
                             <hr>
                             <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-user-plus"></i> &nbsp;Profile + </a>
                         </div>
-                         </div>
                     </div>
-
-                    <div class="col-md-9 col-sm-9  user-wrapper">
-                        <div class="description">
-                             <h3> <%= user.name.first %>'s Biography : </h3>
+                </div>
+                <div class="col-md-9 col-sm-9  user-wrapper">
+                    <div class="description">
+                        <h3> <%= user.name.first %>'s Biography : </h3>
                         <hr>
-                         <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                              Aliquam suscipit egestas eros, ut maximus magna blandit ut.
-                             Suspendisse vel molestie sapien.
-                              Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                             Fusce sit amet egestas dui, vitae tincidunt justo.
-                             </p>
                         <p>
-                             Etiam eleifend massa congue magna pretium, id blandit dui pulvinar.
-                             Nam et pulvinar risus, vel blandit risus.
-                              Maecenas tristique volutpat ante, aliquet hendrerit felis aliquet nec.
-                              Curabitur rutrum tincidunt erat, ac feugiat libero gravida ac.
-                             Suspendisse ut varius quam, vitae rutrum metus.
-                            </p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Aliquam suscipit egestas eros, ut maximus magna blandit ut.
+                            Suspendisse vel molestie sapien.
+                            Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                            Fusce sit amet egestas dui, vitae tincidunt justo.
+                        </p>
+                        <p>
+                            Etiam eleifend massa congue magna pretium, id blandit dui pulvinar.
+                            Nam et pulvinar risus, vel blandit risus.
+                            Maecenas tristique volutpat ante, aliquet hendrerit felis aliquet nec.
+                            Curabitur rutrum tincidunt erat, ac feugiat libero gravida ac.
+                            Suspendisse ut varius quam, vitae rutrum metus.
+                        </p>
                         <h3> Social Links: </h3>
                         <hr>
-                       <a href="#" class="btn btn-social btn-facebook">
-                                <i class="fa fa-facebook"></i>&nbsp; Facebook </a>
-
-                            <a href="#" class="btn btn-social btn-google">
-                                <i class="fa fa-google-plus"></i>&nbsp; Google</a>
-                            <a href="#" class="btn btn-social btn-twitter">
-                                <i class="fa fa-twitter"></i>&nbsp; Twitter </a>
-                            <a href="#" class="btn btn-social btn-linkedin">
-                                <i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
-                        </div>
-
+                        <a href="#" class="btn btn-social btn-facebook">
+                        <i class="fa fa-facebook"></i>&nbsp; Facebook </a>
+                        <a href="#" class="btn btn-social btn-google">
+                        <i class="fa fa-google-plus"></i>&nbsp; Google</a>
+                        <a href="#" class="btn btn-social btn-twitter">
+                        <i class="fa fa-twitter"></i>&nbsp; Twitter </a>
+                        <a href="#" class="btn btn-social btn-linkedin">
+                        <i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
                     </div>
-
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
         </div>
-                </div>
-
-</body>
-
-
-  <footer>
-    <% include ../partials/footer %>
-  </footer>
-
+        </div>
+    </body>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
 </html>

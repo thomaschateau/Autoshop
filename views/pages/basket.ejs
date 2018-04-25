@@ -1,104 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <% include ../partials/head %>
-  </head>
-  <header>
-   <% include ../partials/header %>
-  </header>
-  <body style="background-color: #e9ebee;">
-    <!-- Page Content -->
-    <section class="py-5">
-       <div class="container" style="background-color: #ffffff;">
-          <div class="row">
-             <div class="col-xl-12">
-                <table class="table table-hover">
-                   <thead>
-                      <tr>
-                         <th>Product</th>
-                         <th class="text-center">Total</th>
-                         <th> </th>
-                      </tr>
-                   </thead>
-                   <tbody>
-                     <% search.forEach(function(item) { %>
-                      <tr>
-                         <td class="col-sm-12 col-xs-12">
-                            <div class="media">
-                              <%- item.img_holder %>
-                               <div class="media-body">
-                                  <h4 class="media-heading">Brand: <%= item.brand %></h4>
-                                  <h5 class="media-heading">Type: <%= item.type %></h5>
-                                  <span>Colour: <%= item.colour %></span>
-                               </div>
-                            </div>
-                         </td>
-                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                            <h4 class="media-heading">Quantity: 1</h4>
-                         </td>
-                         <td class="col-sm-1 col-md-1 text-center"><strong>£<%= item.price %></strong></td>
-                      </tr>
-                      <tr>
-                         <td>   </td>
-                         <td>   </td>
-                         <td>   </td>
-                         <td>
-                            <h5>Subtotal</h5>
-                         </td>
-                         <td class="text-right">
-                            <h5><strong>£<%= item.price %></strong></h5>
-                         </td>
-                      </tr>
-                      <tr>
-                         <td>   </td>
-                         <td>   </td>
-                         <td>   </td>
-                         <td>
-                            <h5>Estimated shipping</h5>
-                         </td>
-                         <td class="text-right">
-                            <h5><strong>FREE</strong></h5>
-                         </td>
-                      </tr>
-                      <tr>
-                         <td>   </td>
-                         <td>   </td>
-                         <td>   </td>
-                         <td>
-                            <h3>Total</h3>
-                         </td>
-                         <td class="text-right">
-                            <h3><strong>£<%= item.price %></strong></h3>
-                         </td>
-                      </tr>
-                      <tr>
-                         <td>   </td>
-                         <td>   </td>
-                         <td>   </td>
-                         <td>
-                            <a href="/index" class="btn btn-default">Continue Shopping</a>
-                         </td>
-                         <td>
-                            <button type="button" class="btn btn-success">
-                            Proceed to the Checkout
-                            </button>
-                         </td>
-                      </tr>
-                   </tbody>
-                </table>
-             </div>
-          </div>
-       </div>
-    </section>
-                                    <% });%>
-    <!--spacers-->
-    <p class="py-5">
-    </p>
-    <p class="py-5">
-    </p>
-    <p class="py-5">
-    </p>
-
-  </body>
-        <% include ../partials/footer %>
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <body style="background-color: #e9ebee;">
+        <!-- Page Content -->
+        <section class="py-5">
+            <div class="container" style="background-color: #ffffff;">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th class="text-center">Total</th>
+                                    <th> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% search.forEach(function(item) { %>
+                                <tr>
+                                    <td class="col-sm-12 col-xs-12">
+                                        <div class="media">
+                                            <%- item.img_holder %>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Brand: <%= item.brand %></h4>
+                                                <h5 class="media-heading">Type: <%= item.type %></h5>
+                                                <span>Colour: <%= item.colour %></span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="col-sm-1 col-md-1" style="text-align: center">
+                                        <h4 class="media-heading">Quantity: 1</h4>
+                                    </td>
+                                    <td class="col-sm-1 col-md-1 text-center"><strong>£<%= item.price %></strong></td>
+                                </tr>
+                                <tr>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>
+                                        <h5>Subtotal</h5>
+                                    </td>
+                                    <td class="text-right">
+                                        <h5><strong>£<%= item.price %></strong></h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>
+                                        <h5>Estimated shipping</h5>
+                                    </td>
+                                    <td class="text-right">
+                                        <h5><strong>FREE</strong></h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>
+                                        <h3>Total</h3>
+                                    </td>
+                                    <td class="text-right">
+                                        <h3><strong>£<%= item.price %></strong></h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>
+                                        <a href="/index" class="btn btn-default">Continue Shopping</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">
+                                        Proceed to the Checkout
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <% });%>
+        <!--spacers-->
+        <p class="py-5">
+        </p>
+        <p class="py-5">
+        </p>
+        <p class="py-5">
+        </p>
+    </body>
+    <% include ../partials/footer %>
 </html>

@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <% include ../partials/head %>
-  </head>
-  <header>
-   <% include ../partials/header %>
-  </header>
-  <body style="background-color: #e9ebee;">
-
-    <!-- Page Content -->
-   <% include ../partials/categories %>
-          <!-- /.col-lg-3 -->
-
-          <div class="col-lg-9">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <body style="background-color: #e9ebee;">
+        <!-- Page Content -->
+        <% include ../partials/categories %>
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9">
             <br>
             <br>
-             <div class="row">
-           <% trousers.forEach(function(item) { %>
-             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                <%- item.img_holder %>
-                   <div class="card-body">
-                      <h4 class="card-title">
-                         <a href="#"><%= item.brand %></a>
-                      </h4>
-                      <h5><%= item.type %></h5>
-                      <p class="card-text"><%= item.description %></p>
-                   </div>
-                   <div class="card-footer">
-                     <button type="button" class="btn btn-primary">Add to basket</button>
-                     <p class="text-muted">Item: <%= item.sku %></p>
-                      <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                   </div>
+            <div class="row">
+                <% trousers.forEach(function(item) { %>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <%- item.img_holder %>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="#"><%= item.brand %></a>
+                            </h4>
+                            <h5><%= item.type %></h5>
+                            <p class="card-text"><%= item.description %></p>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-primary">Add to basket</button>
+                            <p class="text-muted">Item: <%= item.sku %></p>
+                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+                    </div>
                 </div>
-             </div>
-             <% });%>
-           </div>
+                <% });%>
+            </div>
         </div>
-
-                </div>
+        </div>
         <div class="jumbotron jumbotron-fluid" style="background-color: #ff5152;">
-        <div class="container">
-          <h1 class="display-4" style="color: #ffef74;">More coming!</h1>
-          <p class="lead" style="color: #ffef74;">Limited offer but great prices. More stuff to come!</p>
+            <div class="container">
+                <h1 class="display-4" style="color: #ffef74;">More coming!</h1>
+                <p class="lead" style="color: #ffef74;">Limited offer but great prices. More stuff to come!</p>
+            </div>
         </div>
         </div>
-           </div>
-
-
-  </body>
-        <% include ../partials/footer %>
+    </body>
+    <% include ../partials/footer %>
 </html>
