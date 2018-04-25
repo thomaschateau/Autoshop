@@ -32,18 +32,16 @@ MongoClient.connect(url, function(err, database) {
   app.listen(8080);
 });
 
-app.get('/', function(req, res){
-  var params = {screen_name: 'nodejs'};
+app.get('/api', function(req, res){
+  var params = {screen_name: 'aberdeen'};
   client.get('statuses/user_timeline', params, function(error, tweets, response) {
    if (!error) {
-     var output = "";
+     var tweets = [];
      for (var t = 0; t < tweets.length; t++) {
-       output += "<div>";
-       output += "<h2>" + tweets[t].user.screen_name + "<h2>";
-       output += "<p>" + tweets[t].text + "</p>"
-       output += "</div>";
+       tweets.push({"screen_name": result[i].user.screen_name,
+         "text": result[i].text});
      }
-      res.send("Hello world! by express" + output);
+      res.render('pages/api', { tweets: tweets});
    }
   });
 

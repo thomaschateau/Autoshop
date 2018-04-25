@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <header>
+   <% include ../partials/header %>
+  </header>
+  <body style="background-color: #e9ebee;">
+
+   <% include ../partials/categories %>
+          <!-- /.col-lg-3 -->
+
+          <div class="col-lg-3">
+            <br>
+            <br>
+             <div class="row">
+           <% tweet.forEach(function(item) { %>
+             <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                 <a href="#"><img class="card-img-top" src="/icon_twitter.jpg" alt="Tweet" style="width:100%"></a>
+                   <div class="card-body">
+                      <h4 class="card-title">
+                         <a href="#"><%= item.screen_name %></a>
+                      </h4>
+                      <p class="card-text"><%= item.text %></p>
+                   </div>
+                   <div class="card-footer">
+                      <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                   </div>
+                </div>
+             </div>
+             <% });%>
+           </div>
+        </div>
+           </div>
+                    </div>
+                        </div>
+  </body>
+ <% include ../partials/footer %>
+</html>
