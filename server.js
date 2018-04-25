@@ -292,6 +292,7 @@ res.render('pages/itm_shoes', { search: search });
 });
 });
 app.get('/basket', function(req, res) {
+    if(!req.session.loggedin){res.redirect('/login');return;}
   db.collection(req.query.col).find({sku: req.query.sku}).toArray(function(err, result) {
   if (err) throw err;
   var search = [];
