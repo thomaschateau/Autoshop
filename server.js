@@ -34,7 +34,7 @@ MongoClient.connect(url, function(err, database) {
 
 app.get('/api', function(req, res){
   var params = {screen_name: 'nodejs'};
-  client.get('statuses/user_timeline', params, function(error, tweets, response) {
+  client.get('statuses/user_timeline', params, function(error, tweets, result) {
       if (error) throw error;
       var tweet = [];
       for (var t = 0; t < tweets.length; t++) {
