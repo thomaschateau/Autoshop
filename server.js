@@ -33,7 +33,7 @@ MongoClient.connect(url, function(err, database) {
 });
 
 app.get('/api', function(req, res){
-  var params = {screen_name: 'aberdeen'};
+  var params = {screen_name: 'nodejs'};
   client.get('statuses/user_timeline', params, function(error, tweets, response) {
       if (error) throw error;
       var tweet = [];
