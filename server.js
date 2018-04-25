@@ -126,11 +126,12 @@ var datatostore = {
 "location":{"street":req.body.street,"city":req.body.city,"postcode":req.body.postcode},
 "email":req.body.email,
 "login":{"username":req.body.username,"password":req.body.password},
-"dob":req.body.dob,"registered":Date()}
+"dob":req.body.dob,
+"registered":Date()}
 //once created we just run the data string against the database and all our new data will be saved/
   db.collection('people').save(datatostore, function(err, result) {
     if (err) throw err;
-    console.log('saved' + datatostore.toString());
+    console.log(JSON.stringify(datatostore)
     //when complete redirect to the index
     res.redirect('/login')
   })
