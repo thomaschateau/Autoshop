@@ -43,7 +43,7 @@ app.get('/api', function(req, res) {
  client.get('statuses/user_timeline', params, function(error, tweets, response) {
  if (!error) {
  var json = [];
- for (var i = 0; i < tweets.statuses.length; i++) {
+ for (var i = 0; i < tweets.length; i++) {
  json.push({
  "name": tweets.statuses[i].user.name,
  "text": tweets.statuses[i].text
