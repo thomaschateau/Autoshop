@@ -21,16 +21,7 @@ var client = new Twitter({
  access_token_secret: 'e7F9plouL48IrJC14vYT1t6gaDFxeGU7s2RDEwSkdimwT'
 });
 
-app.get('/', function(req, res){
-  var params = {screen_name: 'nodejs'};
-  client.get('statuses/user_timeline', params, function(error, tweets, response) {
-   if (!error) {
-   console.log(tweets);
-   }
-  });
- res.send("Hello world! by express");
-});
-app.listen(8080);
+
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 var db;
@@ -41,7 +32,15 @@ MongoClient.connect(url, function(err, database) {
   app.listen(8080);
 });
 
-
+app.get('/', function(req, res){
+  var params = {screen_name: 'nodejs'};
+  client.get('statuses/user_timeline', params, function(error, tweets, response) {
+   if (!error) {
+   console.log(tweets);
+   }
+  });
+ res.send("Hello world! by express");
+});
 //********** GET ROUTES - Deal with displaying pages ***************************
 app.get('/index', function(req, res) {
   db.collection('promotions').find().toArray(function(err, result) {
