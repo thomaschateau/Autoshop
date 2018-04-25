@@ -43,9 +43,10 @@ app.get('/', function(req, res){
        output += "<p>" + tweets[t].text + "</p>"
        output += "</div>";
      }
+      res.send("Hello world! by express" + output);
    }
   });
- res.send("Hello world! by express" + output);
+
 });
 //********** GET ROUTES - Deal with displaying pages ***************************
 app.get('/index', function(req, res) {
