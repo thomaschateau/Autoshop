@@ -37,9 +37,11 @@ app.get('/api', function(req, res){
   client.get('statuses/user_timeline', params, function(error, tweets, result) {
       if (error) throw error;
       var tweet = [];
-      for (var i = 0; i < tweets.length; i++) {
-        tweet.push({"screen_name": result[i].user.screen_name,
-          "text": result[i].text});
+      for (var i = 0; i < tweets.statuses.length; i++) {
+           tweet.push({
+           name: tweets.statuses[i].user.name,
+           text: tweets.statuses[i].text
+           });
       res.render('pages/api', { tweet: tweet});
    }
   });
