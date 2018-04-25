@@ -295,7 +295,7 @@ app.get('/basket', function(req, res) {
     if(!req.session.loggedin){res.redirect('/login');return;}
   db.collection(req.query.col).find({sku: req.query.sku}).toArray(function(err, result) {
   if (err) throw err;
-  var req.session.basket = [];
+  req.session.basket = [];
     for (var i = 0; i < result.length; i++) {
       req.session.basket.push({"sku": result[i].sku,
                 "brand": result[i].brand,
