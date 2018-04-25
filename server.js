@@ -142,17 +142,6 @@ app.get('/profile', function(req, res) {
 		//otherwise send them back to login
 	});
 });
-//the adduser route deals with adding a new user
-//dataformat for storing new users.
-//{"_id":18,
-//"gender":"female",
-//"name":{"title":"miss","first":"allie","last":"austin"},
-//"location":{"street":"9348 high street","city":"canterbury","state":"leicestershire","postcode":"N7N 1WE"},
-//"email":"allie.austin@example.com",
-//"login":{"username":"smalldog110","password":"lickit"},
-//"dob":"1970-07-06 16:32:37","registered":"2011-02-08 07:10:24",
-//"picture":{"large":"https://randomuser.me/api/portraits/women/42.jpg","medium":"https://randomuser.me/api/portraits/med/women/42.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/42.jpg"},
-//"nat":"GB"}
 app.post('/adduser', function(req, res) {
 	//check we are logged in
 	//we create the data string from the form components that have been passed in
