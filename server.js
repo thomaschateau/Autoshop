@@ -295,9 +295,9 @@ app.get('/basket', function(req, res) {
     if(!req.session.loggedin){res.redirect('/login');return;}
   db.collection(req.query.col).find({sku: req.query.sku}).toArray(function(err, result) {
   if (err) throw err;
-  req.session.basket = [];
+  var search = [];
     for (var i = 0; i < result.length; i++) {
-      req.session.basket.push({"sku": result[i].sku,
+      search.push({"sku": result[i].sku,
                 "brand": result[i].brand,
                 "type": result[i].type,
                 "description": result[i].description,
@@ -307,7 +307,6 @@ app.get('/basket', function(req, res) {
                  "price": result[i].price,
                  "img_holder": '<a class="thumbnail pull-left" href="#"> <img class="media-object" src="../' + result[i].sku + '.png" alt="' + result[i].sku + '.png" style="width: auto; height: 72px;"></a>'});
     }
-    var search = req.session.basket;
   res.render('pages/basket', { search: search });
   });
   });
