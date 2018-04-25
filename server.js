@@ -49,7 +49,8 @@ app.get('/api', function(req, res) {
  "text": tweets[i].text
  });
  }
-         res.send(JSON.stringify(json));
+         //res.send(JSON.stringify(json));
+           res.render('pages/api', { json: json});
  }
  });
 });
