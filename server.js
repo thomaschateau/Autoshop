@@ -13,6 +13,24 @@ const app = express();
 //this tells express we are using sesssions. These are variables that only belong to one user of the site at a time.
 app.use(session({ secret: 'example' }));
 app.use (bodyParser ());
+var Twitter = require('twitter');
+var client = new Twitter({
+ consumer_key: 'xzRL5GX9qaV5pjEVcJGspQtEs',
+ consumer_secret: 'iIfLl7XCy5iVb0tnO0xavSSl0sUgIZbihWOkWvLvEadCWMDVUE',
+ access_token_key: '988939621164863488-k4AfpRzxEAzsvmmF5nTcP2oxouxfqU0',
+ access_token_secret: 'e7F9plouL48IrJC14vYT1t6gaDFxeGU7s2RDEwSkdimwT'
+});
+
+app.get('/', function(req, res){
+  var params = {screen_name: 'nodejs'};
+  client.get('statuses/user_timeline', params, function(error, tweets, response) {
+   if (!error) {
+   console.log(tweets);
+   }
+  });
+ res.send("Hello world! by express");
+});
+app.listen(8080);
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 var db;
