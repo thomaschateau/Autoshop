@@ -42,10 +42,10 @@ app.get('/api', function(req, res){
            name: tweets.statuses[i].user.name,
            text: tweets.statuses[i].text
            });
-      res.render('pages/api', { tweet: tweet});
-   }
-  });
 
+   }
+         res.render('pages/api', { tweet: tweet});
+  });
 });
 //********** GET ROUTES - Deal with displaying pages ***************************
 app.get('/index', function(req, res) {
