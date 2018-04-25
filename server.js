@@ -49,7 +49,7 @@ app.get('/api', function(req, res) {
  "text": tweets.statuses[i].text
  });
  }
-         res.render('pages/api', { json: json});
+         res.send(JSON.stringify(json));
  }
  });
 });
