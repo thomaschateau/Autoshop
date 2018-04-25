@@ -35,13 +35,12 @@ MongoClient.connect(url, function(err, database) {
 app.get('/api', function(req, res){
   var params = {screen_name: 'aberdeen'};
   client.get('statuses/user_timeline', params, function(error, tweets, response) {
-   if (!error) {
-     var tweets = [];
-     for (var t = 0; t < tweets.length; t++) {
-       tweets.push({"screen_name": result[i].user.screen_name,
-         "text": result[i].text});
-     }
-      res.render('pages/api', { tweets: tweets});
+      if (error) throw error;
+      var tweet = [];
+      for (var t = 0; t < tweets.length; t++) {
+        tweet.push({"screen_name": result[i].user.screen_name,
+          "text": result[i].text});
+      res.render('pages/api', { tweet: tweet});
    }
   });
 
