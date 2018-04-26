@@ -30,6 +30,9 @@ MongoClient.connect(url, function(err, database) {
 	db = database;
 	app.listen(8080);
 });
+app.get('/', function(req, res) {
+	res.redirect('/index');
+});
 app.get('/api', function(req, res) {
 	var params = {
 		screen_name: 'NodeJS'
