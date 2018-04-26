@@ -2,9 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      <!-- Call head.ejs -->
         <% include ../partials/head %>
     </head>
     <header>
+      <!-- Call header.ejs -->
         <% include ../partials/header %>
     </header>
     <body style="background-color: #e9ebee;">
@@ -20,7 +22,7 @@
                     <br>
                 </div>
             </div>
-            <!-- USER PROFILE ROW STARTS-->
+            <!-- Get the user data-->
             <div class="row">
                 <div class="col-md-3 col-sm-3">
                     <div class="user-wrapper">
@@ -38,6 +40,7 @@
                 </div>
                 <div class="col-md-9 col-sm-9  user-wrapper">
                     <div class="description">
+                      <!-- dummy stuff -->
                         <h3> <%= user.name.first %>'s Biography : </h3>
                         <hr>
                         <p>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      <!-- Call head.ejs -->
         <% include ../partials/head %>
     </head>
     <header>
+      <!-- Call header.ejs -->
         <% include ../partials/header %>
     </header>
     <body style="background-color: #e9ebee;">
@@ -12,7 +14,9 @@
                 <span class="lead" style="color: #4267b2;">Hey! Check out our limited time offers. This weekend only.</span>
             </nav>
         </div>
+        <!-- Call categories.ejs -->
         <% include ../partials/categories %>
+        <!-- Call main_slider.ejs -->
         <% include ../partials/main_slider %>
         </div>
         </div>
@@ -22,6 +26,7 @@
                 <p class="lead" style="color: #ffef74;">For a limited time only enjoy range of your favourite products at unbeatable prices!</p>
             </div>
         </div>
+        <!-- Call promo_feeder.ejs as an alternative version of item loop-->
         <% include ../partials/promo_feeder %>
         <br>
         <div class="jumbotron jumbotron-fluid" style="background-color: #a3f5d1;">
@@ -34,9 +39,8 @@
         <br>
         <h2 class="my-4">More about Autoshop:</h2>
         <br>
-        <!-- Marketing messaging and featurettes-->
         <div class="container marketing">
-            <!-- Three columns of text below the carousel -->
+            <!-- Dummy content -->
             <div class="row">
                 <div class="col-xs-6 col-sm-3">
                     <img class="rounded-circle" src="../icon_ship.png" alt="Generic placeholder image" width="140" height="140">

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      <!-- Call head.ejs -->
         <% include ../partials/head %>
     </head>
     <header>
+      <!-- Call header.ejs -->
         <% include ../partials/header %>
     </header>
     <body style="background-color: #e9ebee;">
@@ -21,6 +23,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                              <!-- Loop for every item in the variable -->
                                 <% search.forEach(function(item) { %>
                                 <tr>
                                     <td class="col-sm-12 col-xs-12">
@@ -33,6 +36,7 @@
                                             </div>
                                         </div>
                                     </td>
+                                    <!-- Some price containing rows -->
                                     <td class="col-sm-1 col-md-1" style="text-align: center">
                                         <h4 class="media-heading">Quantity: 1</h4>
                                     </td>

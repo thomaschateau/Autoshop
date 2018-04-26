@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Call head.ejs -->
         <% include ../partials/head %>
     </head>
     <header>
+      <!-- Call header.ejs -->
         <% include ../partials/header %>
     </header>
     <body style="background-color: #e9ebee;">
-        <!-- /.col-lg-3 -->
+        <!-- Loop for every item in the variable -->
         <div class="container">
             <div class="list-group">
                 <% json.forEach(function(item) { %>
@@ -24,5 +26,6 @@
         </div>
         </div>
     </body>
+    <!-- footer -->
     <% include ../partials/footer %>
 </html>

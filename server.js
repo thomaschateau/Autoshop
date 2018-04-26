@@ -1,19 +1,18 @@
 console.log('Node server by Autograph.');
 console.log('Initialising...');
 // server.js
+// Autograph team, CASD3 2018
 // load the things we need
-const MongoClient = require('mongodb').MongoClient; //npm install mongodb@2.2.32
+const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/autoshopdb";
-const express = require('express'); //npm install express
-const session = require('express-session'); //npm install express-session
-const bodyParser = require('body-parser'); //npm install body-parser
+const express = require('express');
+const session = require('express-session');
+const bodyParser = require('body-parser');
 const app = express();
 app.use(express.static('public'))
-//this tells express we are using sesssions. These are variables that only belong to one user of the site at a time.
-app.use(session({
-	secret: 'example'
-}));
+app.use(session({ secret: 'example' }));
 app.use(bodyParser());
+//Twitter stuff
 var Twitter = require('twitter');
 var client = new Twitter({
 	consumer_key: 'xzRL5GX9qaV5pjEVcJGspQtEs',
@@ -21,18 +20,21 @@ var client = new Twitter({
 	access_token_key: '988939621164863488-k4AfpRzxEAzsvmmF5nTcP2oxouxfqU0',
 	access_token_secret: 'e7F9plouL48IrJC14vYT1t6gaDFxeGU7s2RDEwSkdimwT'
 });
-// set the view engine to ejs
+// Set the engine
 app.set('view engine', 'ejs');
 var db;
-//this is our connection to the mongo db, ts sets the variable db as our database
+//Connecting to the database
 MongoClient.connect(url, function(err, database) {
 	if (err) throw err;
 	db = database;
 	app.listen(8080);
 });
+// Page management
+// Redirect from "/"
 app.get('/', function(req, res) {
 	res.redirect('/index');
 });
+// Render api.ejs
 app.get('/api', function(req, res) {
 	var params = {
 		screen_name: 'NodeJS'
@@ -48,14 +50,13 @@ app.get('/api', function(req, res) {
 					"url": tweets[i].user.url,
 				});
 			}
-			//res.send(JSON.stringify(json));
 			res.render('pages/api', {
 				json: json
 			});
 		}
 	});
 });
-//********** GET ROUTES - Deal with displaying pages ***************************
+//Render index.ejs
 app.get('/index', function(req, res) {
 	db.collection('promotions').find().toArray(function(err, result) {
 		if (err) throw err;
@@ -77,16 +78,12 @@ app.get('/index', function(req, res) {
 		});
 	});
 });
-//this is our login route, all it does is render the login.ejs page.
+
+//Render login.ejs
 app.get('/login', function(req, res) {
 	res.render('pages/login');
 });
-//adduser route simply draws our adduser page
-app.get('/adduser', function(req, res) {
-	res.render('pages/adduser')
-});
-//logour route cause the page to Logout.
-//it sets our session.loggedin to false and then redirects the user to the login
+// Logout the current user. Redirect to login if not logged
 app.get('/logout', function(req, res) {
 	if (!req.session.loggedin) {
 		res.redirect('/login');
@@ -96,9 +93,7 @@ app.get('/logout', function(req, res) {
 	req.session.destroy();
 	res.redirect('/login');
 });
-//********** POST ROUTES - Deal with processing data from forms ***************************
-//the dologin route detasl with the data from the login screen.
-//the post variables, username and password ceom from the form on the login page.
+// Post login. Look for the user in the db
 app.post('/dologin', function(req, res) {
 	console.log(JSON.stringify(req.body));
 	console.log(req.session.username);
@@ -107,13 +102,13 @@ app.post('/dologin', function(req, res) {
 	db.collection('people').findOne({
 		"login.username": uname
 	}, function(err, result) {
-		if (err) throw err; //if there is an error, throw the error
-		//if there is no result, redirect the user back to the login system as that username must not exist
+		if (err) throw err;
+		//Redirect if the user doesnt exist
 		if (!result) {
 			res.redirect('/login');
 			return;
 		}
-		//if there is a result then check the password, if the password is correct set session loggedin to true and send the user to the index
+		//Check the password if the user exists
 		if (result.login.password == pword) {
 			req.session.loggedin = true;
 			req.session.username = uname;
@@ -121,33 +116,30 @@ app.post('/dologin', function(req, res) {
 				user: result
 			});
 		}
-		//otherwise send them back to login
+		//Otherwise send them back to login
 		else {
 			res.redirect('/login')
 		}
 	});
 });
+// Render user profile page
 app.get('/profile', function(req, res) {
 	var uname = req.session.username;
 	db.collection('people').findOne({
 		"login.username": uname
 	}, function(err, result) {
-		if (err) throw err; //if there is an error, throw the error
-		//if there is no result, redirect the user back to the login system as that username must not exist
+		if (err) throw err;
 		if (!result) {
 			res.redirect('/login');
 			return;
 		}
-		//if there is a result then check the password, if the password is correct set session loggedin to true and send the user to the index
 		res.render('pages/profile', {
 			user: result
 		});
-		//otherwise send them back to login
 	});
 });
+// Get the data from the register form and stuff it in the db
 app.post('/adduser', function(req, res) {
-	//check we are logged in
-	//we create the data string from the form components that have been passed in
 	var datatostore = {
 		"name": {
 			"first": req.body.first,
@@ -166,14 +158,15 @@ app.post('/adduser', function(req, res) {
 		"dob": req.body.dob,
 		"registered": Date()
 	}
-	//once created we just run the data string against the database and all our new data will be saved/
+	//Stuff the data
 	db.collection('people').save(datatostore, function(err, result) {
 		if (err) throw err;
 		console.log(JSON.stringify(datatostore));
-		//when complete redirect to the index
+		//And redirect to login
 		res.redirect('/login');
 	})
 });
+//Render trousers.ejs
 app.get('/trousers', function(req, res) {
 	db.collection('trousers').find().toArray(function(err, result) {
 		if (err) throw err;
@@ -194,6 +187,7 @@ app.get('/trousers', function(req, res) {
 		});
 	});
 });
+//Render single trousers
 app.get('/itm_trousers', function(req, res) {
 	//console.log(req.query.sku);
 	db.collection('trousers').find({
@@ -220,6 +214,7 @@ app.get('/itm_trousers', function(req, res) {
 		});
 	});
 });
+//Render promo item list
 app.get('/promotions', function(req, res) {
 	db.collection('promotions').find().toArray(function(err, result) {
 		if (err) throw err;
@@ -240,6 +235,7 @@ app.get('/promotions', function(req, res) {
 		});
 	});
 });
+//Render single promotion item
 app.get('/itm_promo', function(req, res) {
 	//console.log(req.query.sku);
 	db.collection('promotions').find({
@@ -267,6 +263,7 @@ app.get('/itm_promo', function(req, res) {
 	});
 });
 console.log('....');
+//Render all tshirts
 app.get('/tshirts', function(req, res) {
 	db.collection('tshirts').find().toArray(function(err, result) {
 		if (err) throw err;
@@ -287,6 +284,7 @@ app.get('/tshirts', function(req, res) {
 		});
 	});
 });
+//Single tshirt details
 app.get('/itm_tshirt', function(req, res) {
 	//console.log(req.query.sku);
 	db.collection('tshirts').find({
@@ -313,6 +311,7 @@ app.get('/itm_tshirt', function(req, res) {
 		});
 	});
 });
+//Render shoes.ejs
 app.get('/shoes', function(req, res) {
 	db.collection('shoes').find().toArray(function(err, result) {
 		if (err) throw err;
@@ -333,6 +332,7 @@ app.get('/shoes', function(req, res) {
 		});
 	});
 });
+//Render single shoes item
 app.get('/itm_shoes', function(req, res) {
 	//console.log(req.query.sku);
 	db.collection('shoes').find({
@@ -359,6 +359,7 @@ app.get('/itm_shoes', function(req, res) {
 		});
 	});
 });
+//Render basket
 app.get('/basket', function(req, res) {
 	if (!req.session.loggedin) {
 		res.redirect('/login');
@@ -387,18 +388,23 @@ app.get('/basket', function(req, res) {
 		});
 	});
 });
+//Render about.ejs
 app.get('/about', function(req, res) {
 	res.render('pages/about');
 });
+//Render contact.ejs
 app.get('/contact', function(req, res) {
 	res.render('pages/contact');
 });
+//Render register.ejs
 app.get('/register', function(req, res) {
 	res.render('pages/register');
 });
+//Render basket_empty.ejs
 app.get('/basket_empty', function(req, res) {
 	res.render('pages/basket_empty');
 });
+//Show fancy stuff
 console.log('.....');
 console.log('All good to go!');
 console.log(' ');

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      <!-- Call head.ejs -->
         <% include ../partials/head %>
     </head>
     <header>
+      <!-- Call header.ejs -->
         <% include ../partials/header %>
     </header>
     <body style="background-color: #e9ebee;">
         <% include ../partials/categories %>
-        <!-- /.col-lg-3 -->
+        <!-- Loop for every item in the variable -->
         <% search.forEach(function(item) { %>
         <div class="col-lg-9">
             <div class="card mt-4">
@@ -27,6 +29,7 @@
             </div>
             <!-- /.card -->
             <div class="card card-outline-secondary my-4">
+               <!-- Dummy reviews -->
                 <div class="card-header">
                     Product Reviews
                 </div>
