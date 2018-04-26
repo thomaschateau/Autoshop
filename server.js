@@ -402,6 +402,10 @@ app.get('/register', function(req, res) {
 });
 //Render basket_empty.ejs
 app.get('/basket_empty', function(req, res) {
+	if (!req.session.loggedin) {
+		res.redirect('/login');
+		return;
+	}
 	res.render('pages/basket_empty');
 });
 //Show fancy stuff
